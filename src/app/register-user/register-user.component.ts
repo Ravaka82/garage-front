@@ -16,7 +16,7 @@ export class RegisterUserComponent implements AfterViewInit {
     this.listRole();
   }
   listRole(): void{
-    this. roleservice.getAllTypeSignalement()
+    this. roleservice.getAllRole()
       .subscribe(
         data => {
           this.Role=data;
