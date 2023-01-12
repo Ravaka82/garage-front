@@ -39,6 +39,7 @@ mat-card-content {
   width:80% ;
   height: 3em;
   font-size: 15px;
+  background-color:#535351;
 }
 
 .login-button {
@@ -46,4 +47,8 @@ mat-card-content {
   display: block;
   width: 80%;
   margin: 20px auto;
+}
+.snackbar-margin-padding{
+  padding-top: 100px;
+
 }
