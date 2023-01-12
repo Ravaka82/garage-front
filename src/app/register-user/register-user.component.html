@@ -96,22 +96,11 @@
               <mat-icon matSuffix>lock</mat-icon>
 
             </mat-form-field>
-            <mat-form-field>
-                <input
-                matInput
-                placeholder="Password"
-                type="password"
-                required
-                minlength="6"
-                name="repassword"
-                ngModel
-                #repassword="ngModel">
-                <mat-error
-                  *ngIf="repassword.errors && repassword.errors['required']">
-                  Re-Enter Password is required
-                </mat-error>
-              <mat-icon matSuffix>lock</mat-icon>
-            </mat-form-field>
+            <div class="selectdiv">
+              <select  [(ngModel)]="nom"  name="nom" class="select">
+                  <option *ngFor="let role   of  Role"  >{{role.nom}}</option>
+              </select>
+            </div>
             <button
               mat-raised-button
               color="primary"

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import{MatTabsModule} from '@angular/material/tabs';
@@ -29,7 +29,8 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     MatFormFieldModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
