@@ -6,12 +6,11 @@ import { Role } from '../Model/Role';
   providedIn: 'root'
 })
 export class RoleServiceService {
-  
   constructor(private http:HttpClient){}
-  Url= 'http://localhost:8080/api/role/findRole';
+  Url1= 'http://localhost:8080/api/role/findRole';
 
-  getAllTypeSignalement()
+  getAllRole()
   {
-    return this.http.get<Role[]>(this.Url);
+    return this.http.get<Role[]>(this.Url1);
   }
 }
