@@ -2,3 +2,12 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* css matsnackbar */
+.warning-alert {
+    color: white;
+    --mdc-snackbar-container-color: rgb(251, 241, 108) !important;
+}
+.success-alert{
+    color: white;
+    --mdc-snackbar-container-color: rgb(158, 251, 108) !important;
+}

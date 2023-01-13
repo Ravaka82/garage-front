@@ -30,24 +30,26 @@ export class RegisterUserComponent implements AfterViewInit {
         })
   }
   saveUtilisateur() {//creation utilisateur
-
-    const config = new MatSnackBarConfig();
-    config.verticalPosition = 'top';
-    config.horizontalPosition='start';
-    config.panelClass =['snackbar-margin-padding'];
-
     this.utilisateurservice.creationUtilisateur(this.Utilisateur)
     .subscribe(data => {
       console.log(data);
       this.Utilisateur = new Utilisateur();
       this._snackBar.open("inscription avec succès ✔️✔️ ", 'Close',{
-        duration:2000,
+        duration:500000,
+        // css matsnack bar dia any amn style.css ny css anreo
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+        panelClass: ['success-alert']
       });
       this.gotoList();
     },
     (error: HttpErrorResponse)=>{
       this._snackBar.open( error.error.message , 'Close',{
-        duration:5000,
+        duration:500000,
+        // css matsnack bar dia any amn style.css ny css anreo
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+        panelClass: ['warning-alert']
       });
     }
   )};
