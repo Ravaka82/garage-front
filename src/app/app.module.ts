@@ -16,12 +16,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
+import { TemplateComponent } from './template/template.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterUserComponent,
-    AcceuilComponent
+    AcceuilComponent,
+    TemplateComponent
   ],
   imports: [
     BrowserModule,
