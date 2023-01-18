@@ -17,13 +17,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TemplateComponent } from './template/template.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterUserComponent,
     AcceuilComponent,
-    TemplateComponent
+    TemplateComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
