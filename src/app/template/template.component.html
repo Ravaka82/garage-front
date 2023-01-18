@@ -42,12 +42,15 @@
         </div>
         <div class="row">
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" *ngFor=" let typeReparation of TypeReparation">
-            <div class="card" style="overflow: hidden;">
+            <div class="card" style="overflow: hidden; height: 470px;">
               <img src="../assets/images/{{typeReparation.image}}" height="200px"  class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title" style="color:chocolate">{{typeReparation.nomTypeReparation}}</h5>
-                <p class="card-text" style="font-size:medium;font-weight: bold;">{{typeReparation.prixReparation}} €</p>
-                <a href="#" class="btn btn-primary">faire une reparation</a>
+                <h5 class="card-title" style="color:chocolate;font-weight:bold">{{typeReparation.nomTypeReparation}}</h5>
+                <button mat-icon-button class="text-danger">
+                  <img src="../assets/images/repare.png">
+               </button>
+                <p class="card-text" style="font-size:medium;font-weight: bold;">{{typeReparation.description}} </p>
+                <p class="card-text" style="font-size:medium;font-weight: bold;color:indianred">{{typeReparation.prixReparation}} € </p>
               </div>
             </div>
           </div>
