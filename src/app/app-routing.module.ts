@@ -7,7 +7,7 @@ import { TemplateComponent } from './template/template.component';
 const routes: Routes = [
   {path: 'login', component: RegisterUserComponent},
   {path: 'acceuil', component: AcceuilComponent},
-  {path: 'Garage', component: TemplateComponent}
+  {path: 'Garage', component: TemplateComponent},
 ];
 
 @NgModule({

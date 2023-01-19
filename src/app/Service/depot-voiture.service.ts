@@ -8,7 +8,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class DepotVoitureService {
 
   constructor(private http:HttpClient) { }
-  UrlDepot= 'http://localhost:8081/api/vehicule/createVehicule';
+  UrlDepot= 'http://localhost:8080/api/vehicule/createVehicule';
 
   DepotVoiture(vehicule: Vehicule)
   {
