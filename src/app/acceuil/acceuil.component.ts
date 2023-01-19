@@ -4,6 +4,8 @@ import { DepotVoitureService } from '../Service/depot-voiture.service';
 import { Router } from '@angular/router';
 import {MatSnackBar,MatSnackBarConfig} from '@angular/material/snack-bar';//fanaovana alert 
 import { HttpErrorResponse } from '@angular/common/http';
+import { TypeReparationService } from '../Service/type-reparation.service';
+import { TypeReparation } from '../Model/TypeReparation';
 
 @Component({
   selector: 'app-acceuil',
@@ -14,12 +16,13 @@ export class AcceuilComponent implements OnInit{
  
   Vehicule: Vehicule = new Vehicule();
   submitted = false;
+  TypeReparation!: TypeReparation[];
   
-  
-  constructor(private _snackBar: MatSnackBar,private depotservice: DepotVoitureService,private router: Router) { }
-  ngOnInit(){
+  constructor(private _snackBar: MatSnackBar,private depotservice: DepotVoitureService,private typeReparationservice: TypeReparationService,private router: Router) { }
+ngOnInit(){
   this.getData();
-  }
+  this.listReparartion();
+}
 getData(){
   let f=localStorage.getItem('idUser');
   //console.log(f);
@@ -60,4 +63,11 @@ boutonsaveDepot() {//action boutton
   this.submitted = true;
   this.saveDepotVoiture();    
 }
+listReparartion(): void{//function liste
+  this.typeReparationservice.getAllTypeReparation()
+    .subscribe(
+      data => {
+        this.TypeReparation=data;
+      })
+ }
 }

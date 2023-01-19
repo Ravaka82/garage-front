@@ -13,10 +13,10 @@ export class TemplateComponent {
   constructor(private _snackBar: MatSnackBar,private typeReparationservice: TypeReparationService,private router: Router) { }
 
   ngOnInit(): void{
-    this.listRegion();
+    this.listReparartion();
   }
   
-  listRegion(): void{//function liste
+  listReparartion(): void{//function liste
     this.typeReparationservice.getAllTypeReparation()
       .subscribe(
         data => {
