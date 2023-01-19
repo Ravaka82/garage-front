@@ -17,11 +17,14 @@ export class AcceuilComponent implements OnInit{
   Vehicule: Vehicule = new Vehicule();
   submitted = false;
   TypeReparation!: TypeReparation[];
+  Vehicules!: Vehicule[];
+  nomVehicule!: string;
   
   constructor(private _snackBar: MatSnackBar,private depotservice: DepotVoitureService,private typeReparationservice: TypeReparationService,private router: Router) { }
 ngOnInit(){
   this.getData();
   this.listReparartion();
+  this.getOneVoitureClient();
 }
 getData(){
   let f=localStorage.getItem('idUser');
@@ -69,5 +72,15 @@ listReparartion(): void{//function liste
       data => {
         this.TypeReparation=data;
       })
+ }
+ getOneVoitureClient(){
+  this.Vehicule.utilisateurId=localStorage.getItem('idUser');
+  // console.log(this.Vehicule.utilisateurId)
+  this.depotservice.getOneVoitureClient(this.Vehicule.utilisateurId)
+  .subscribe(
+    data => {
+      this.Vehicules=data;
+      console.log(data);
+    })
  }
 }
