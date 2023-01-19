@@ -69,6 +69,8 @@ export class RegisterUserComponent implements AfterViewInit {
    .subscribe(
      (data:string) => {
        console.log(data);
+       const d=JSON.parse(data);
+       localStorage.setItem('idUser',d.id);
        //redirigen ref tsy mis erreur
        this.router.navigate(['/acceuil']);
      },
