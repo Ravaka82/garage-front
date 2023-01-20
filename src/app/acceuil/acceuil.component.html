@@ -38,7 +38,7 @@
               <h5> 1) choisir la voiture  <img src="../assets/images/voiture.png" width="30"> que vous souhaitez faire reparer </h5>
               <form (ngSubmit)="getListeDepotVoiture()">
                 <div class="container mt-3">
-                  <select class="form-select" [(ngModel)]="Reparations.vehiculeId"  name="vehiculeId" class="select" style="width:500px;height:50px;">
+                  <select class="form-select" [(ngModel)]="Vehicule._id"  name="vehiculeId" class="select" style="width:500px;height:50px;">
                       <option *ngFor="let vehicule   of  Vehicules"  value="{{vehicule._id}}" >{{vehicule._id}} 
                          <input type="hidden" [(ngModel)]=" vehicule._id" name="vehiculeId" value="{{vehicule._id}}">
                       </option>

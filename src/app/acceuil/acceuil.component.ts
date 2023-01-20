@@ -94,6 +94,7 @@ listReparartion(): void{//function liste
 }
  getListeDepotVoiture(){
   console.log(this.Reparations);
+  console.log(  this.Vehicule._id  );
   // this.vehiculeId = this.Vehicule.id ;
   // console.log( this.vehiculeId );
   this.reparationservice.creationReparation(this.Reparations)
