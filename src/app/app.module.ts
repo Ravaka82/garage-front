@@ -19,6 +19,7 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TemplateComponent } from './template/template.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ListesvehiculesComponent } from './listesvehicules/listesvehicules.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FooterComponent } from './footer/footer.component';
     AcceuilComponent,
     TemplateComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ListesvehiculesComponent
   ],
   imports: [
     BrowserModule,
