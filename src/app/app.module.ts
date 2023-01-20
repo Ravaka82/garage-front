@@ -20,6 +20,8 @@ import { TemplateComponent } from './template/template.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ListesvehiculesComponent } from './listesvehicules/listesvehicules.component';
+import { AcceuilfinancierComponent } from './acceuilfinancier/acceuilfinancier.component';
+import { AcceuilatelierComponent } from './acceuilatelier/acceuilatelier.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ListesvehiculesComponent } from './listesvehicules/listesvehicules.comp
     TemplateComponent,
     HeaderComponent,
     FooterComponent,
-    ListesvehiculesComponent
+    ListesvehiculesComponent,
+    AcceuilfinancierComponent,
+    AcceuilatelierComponent
   ],
   imports: [
     BrowserModule,

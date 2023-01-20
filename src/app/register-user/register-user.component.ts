@@ -71,8 +71,20 @@ export class RegisterUserComponent implements AfterViewInit {
        console.log(data);
        const d=JSON.parse(data);
        localStorage.setItem('idUser',d.id);
-       //redirigen ref tsy mis erreur
+       localStorage.setItem('rolesUser',d.roles);
+         //redirigen ref tsy mis erreur ka client
+       if(d.roles=="ROLE_CLIENT"){
        this.router.navigate(['/acceuil']);
+       }
+       //redirigen ref tsy mis erreur ka financier
+       if(d.roles=="ROLE_RESPONSABLE_FINANCIER"){
+        this.router.navigate(['/acceuilfinancier']);
+       }
+       //redirigen ref tsy mis erreur ka atelier
+       if(d.roles=="ROLE_RESPONSABLE_ATELIER"){
+        this.router.navigate(['/acceuilatelier']);
+       }
+      
      },
      //message d'erreur
      (error: HttpErrorResponse)=>{
