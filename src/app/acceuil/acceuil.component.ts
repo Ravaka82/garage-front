@@ -92,7 +92,7 @@ listReparartion(): void{//function liste
   this.Reparations.vehiculeId = vehiculeId;
   this.Reparations.typeReparationId = typeReparationId;
 }
- getListeDepotVoiture(){
+getListeDepotVoiture(){
   console.log(this.Reparations);
   console.log(  this.Vehicule._id  );
   // this.vehiculeId = this.Vehicule.id ;
@@ -101,7 +101,23 @@ listReparartion(): void{//function liste
   .subscribe(data => {
     console.log(data);
     this.Reparations = new Reparation();
+    this._snackBar.open("Dépot de voiture à reparer avec succès ✔️✔️ ", 'Close',{
+      duration:2000,
+      // css matsnack bar dia any amn style.css ny css anreo
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+      panelClass: ['success-alert']
+    });
+    this.router.navigate(['acceuil']);
   },
+  (error: HttpErrorResponse)=>{
+    this._snackBar.open( error.error.message , 'Close',{
+      duration:2000,
+      // css matsnack bar dia any amn style.css ny css anreo
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+      panelClass: ['warning-alert']
+    });
+  }
 )};
 }
-
