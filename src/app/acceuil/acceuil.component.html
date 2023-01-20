@@ -39,7 +39,7 @@
               <form (ngSubmit)="getListeDepotVoiture()">
                 <div class="container mt-3">
                   <select class="form-select" [(ngModel)]="Vehicule._id"  name="vehiculeId" class="select" style="width:500px;height:50px;">
-                      <option *ngFor="let vehicule   of  Vehicules"  value="{{vehicule._id}}" >{{vehicule._id}} 
+                      <option *ngFor="let vehicule   of  Vehicules"  value="{{vehicule._id}}" >{{vehicule.nom}} 
                          <input type="hidden" [(ngModel)]=" vehicule._id" name="vehiculeId" value="{{vehicule._id}}">
                       </option>
                   </select>
