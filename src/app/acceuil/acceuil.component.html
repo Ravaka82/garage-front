@@ -35,31 +35,35 @@
             <div class="section-title" data-aos="zoom-in-left">
               <h2>Services</h2>
               <p> Vous souhaitez reparer quoi ? </p>
-              <div class="form-group mt-3">
-                <select  [(ngModel)]="nomVehicule"  name="nom" class="select">
-                    <option *ngFor="let vehicule   of  Vehicules"  value="{{vehicule.id}}" >{{vehicule.nom}}</option>
-                </select>
-              </div>
-              <h5>Cliquez sur l'icone sous forme reparation voiture  <img src="../assets/images/repare.png" width="30"> pour choisir les reparations que vous souhaitez faire . </h5>
-              <div class="row">
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch" *ngFor=" let typeReparation of TypeReparation">
-                  <div class="card" style="overflow: hidden;">
-                    <img src="../assets/images/{{typeReparation.image}}" height="200px"  class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title" style="color:chocolate;font-weight:bold">{{typeReparation.nomTypeReparation}}</h5>
-                      <button mat-icon-button class="text-danger">
-                        <img src="../assets/images/repare.png">
-                     </button>
-                      <p class="card-text" style="font-size:medium;font-weight: bold;">{{typeReparation.prixReparation}} € </p>
+              <h5> 1) choisir la voiture  <img src="../assets/images/voiture.png" width="30"> que vous souhaitez faire reparer </h5>
+              <form (ngSubmit)="getListeDepotVoiture()">
+                <div class="container mt-3">
+                  <select class="form-select" [(ngModel)]="Reparations.vehiculeId"  name="vehiculeId" class="select" style="width:500px;height:50px;">
+                      <option *ngFor="let vehicule   of  Vehicules"  value="{{vehicule._id}}" >{{vehicule._id}} 
+                         <input type="hidden" [(ngModel)]=" vehicule._id" name="vehiculeId" value="{{vehicule._id}}">
+                      </option>
+                  </select>
+                </div><br>
+                <h5> 2) Cliquez sur l'icone sous forme reparation voiture  <img src="../assets/images/repare.png" width="30"> pour choisir les reparations que vous souhaitez faire . </h5>
+                <div class="row">
+                  <div class="col-lg-3 col-md-6 d-flex align-items-stretch" *ngFor=" let typeReparation of TypeReparation">
+                    <div class="card" style="overflow: hidden;">
+                      <img src="../assets/images/{{typeReparation.image}}" height="200px"  class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title" style="color:chocolate;font-weight:bold">{{typeReparation.nomTypeReparation}}</h5>
+                        <button mat-icon-button class="text-danger" (click)="setVehiculeAndTypeReparationId(Vehicule._id, typeReparation._id)" type="submit">
+                          <img src="../assets/images/repare.png">
+                       </button>
+                        <p class="card-text" style="font-size:medium;font-weight: bold;">{{typeReparation.prixReparation}} € </p>
+                        <input type="hidden" [(ngModel)]=" typeReparation._id" name="typeReparationId" value="{{typeReparation._id}}">
+                      
+                      </div>
                     </div>
                   </div>
-                </div>
+              </div>
+            </form>
             </div>
-            </div>
-            
-          </div>
-  
-        
+          </div>  
       </section><!-- End Contact Section -->
 <app-footer></app-footer>
 

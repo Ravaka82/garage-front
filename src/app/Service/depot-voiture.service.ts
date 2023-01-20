@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Vehicule } from '../Model/Vehicule';
+import { Vehicule } from '../Model/vehicule';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
@@ -8,9 +8,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class DepotVoitureService {
 
   constructor(private http:HttpClient) { }
-  UrlDepot= 'http://localhost:8081/api/vehicule/createVehicule';
-  Url2 = 'http://localhost:8081/api/vehicule/findVoitureClient';
-  url3 = 'http://localhost:8081/api/vehicule/findVoitureValide';
+  UrlDepot= 'http://localhost:8080/api/vehicule/createVehicule';
+  Url2 = 'http://localhost:8080/api/vehicule/findVoitureClient';
+  url3 = 'http://localhost:8080/api/vehicule/findVoitureValide';
 
   DepotVoiture(vehicule: Vehicule)
   {

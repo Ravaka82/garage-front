@@ -1,7 +1,7 @@
 import { Utilisateur } from "./Utilisateur";
 
 export class Vehicule {
-    id!: string;
+    _id!: string;
     nom!: string;
     type!: string;
     image!: string;

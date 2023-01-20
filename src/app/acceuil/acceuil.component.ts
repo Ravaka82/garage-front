@@ -6,6 +6,8 @@ import {MatSnackBar,MatSnackBarConfig} from '@angular/material/snack-bar';//fana
 import { HttpErrorResponse } from '@angular/common/http';
 import { TypeReparationService } from '../Service/type-reparation.service';
 import { TypeReparation } from '../Model/TypeReparation';
+import { Reparation } from '../Model/Reparation';
+import { ReparationService } from '../Service/reparation.service';
 
 @Component({
   selector: 'app-acceuil',
@@ -15,16 +17,19 @@ import { TypeReparation } from '../Model/TypeReparation';
 export class AcceuilComponent implements OnInit{
  
   Vehicule: Vehicule = new Vehicule();
+  Reparations: Reparation = new Reparation();
   submitted = false;
   TypeReparation!: TypeReparation[];
   Vehicules!: Vehicule[];
   nomVehicule!: string;
+  vehiculeId: any;
   
-  constructor(private _snackBar: MatSnackBar,private depotservice: DepotVoitureService,private typeReparationservice: TypeReparationService,private router: Router) { }
+  constructor(private _snackBar: MatSnackBar,private reparationservice : ReparationService,private depotservice: DepotVoitureService,private typeReparationservice: TypeReparationService,private router: Router) { }
 ngOnInit(){
   this.getData();
   this.listReparartion();
   this.getOneVoitureClient();
+  
 }
 getData(){
   let f=localStorage.getItem('idUser');
@@ -83,4 +88,19 @@ listReparartion(): void{//function liste
       console.log(data);
     })
  }
+ setVehiculeAndTypeReparationId(vehiculeId: any, typeReparationId: any) {
+  this.Reparations.vehiculeId = vehiculeId;
+  this.Reparations.typeReparationId = typeReparationId;
 }
+ getListeDepotVoiture(){
+  console.log(this.Reparations);
+  // this.vehiculeId = this.Vehicule.id ;
+  // console.log( this.vehiculeId );
+  this.reparationservice.creationReparation(this.Reparations)
+  .subscribe(data => {
+    console.log(data);
+    this.Reparations = new Reparation();
+  },
+)};
+}
+
