@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Reparation } from '../Model/Reparation';
 import { Vehicule } from '../Model/vehicule';
+import { DepotVoitureService } from '../Service/depot-voiture.service';
 import { ReparationService } from '../Service/reparation.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class ListesVehiculeDeposerComponent {
   Reparation: Reparation = new Reparation();
   listeReparation!: Reparation[];
   Vehicule: Vehicule = new Vehicule();
-  constructor(private reparationservice: ReparationService){ }
+  displayStyle = "none";
+  constructor(private reparationservice: ReparationService, private depotVoitureService: DepotVoitureService){ }
 
   ngOnInit(): void {
     this.Vehicule.utilisateurId=localStorage.getItem('idUser');
@@ -33,5 +35,19 @@ export class ListesVehiculeDeposerComponent {
     console.log(t[2]);
     return t[2];
   }
-
-}
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+  }
+  confirme(_id:string){
+  console.log(_id);
+  this.depotVoitureService.deleteReparation(_id)
+  .subscribe(
+    data => {
+      this.listesVehiculesDeposer();
+      this.closePopup();
+      console.log(data);
+    }) 
+}}

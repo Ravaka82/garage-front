@@ -11,7 +11,7 @@ export class DepotVoitureService {
   UrlDepot= 'http://localhost:8080/api/vehicule/createVehicule';
   Url2 = 'http://localhost:8080/api/vehicule/findVoitureClient';
   url3 = 'http://localhost:8080/api/vehicule/findVoitureValide'; 
-
+  Url4 = 'http://localhost:8080/api/reparation/deleteReparation';
 
   DepotVoiture(vehicule: Vehicule)
   {
@@ -27,5 +27,7 @@ export class DepotVoitureService {
     const repons =this.http.get<Vehicule[]>(`${this.url3}/${utilisateurId}`);
     return repons;
   } 
-
+  deleteReparation(_id:any){
+    return this.http.delete<void>(`${this.Url4}/${_id}`);
+  }
 }

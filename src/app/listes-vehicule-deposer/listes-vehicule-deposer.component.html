@@ -1,7 +1,6 @@
 <app-header></app-header>
     <section id="pricing" class="pricing">
         <div class="container">
-  
           <div class="section-title" data-aos="zoom-out">
             <h2> Client {{ this.Vehicule.utilisateurId}}</h2>
             <p>Listes des Vehicules deposer</p>
@@ -31,7 +30,33 @@
                         <td><img src="../assets/images/{{repare.typeReparation.image}}" class="card-img-top" style="width:150px;height:150px" alt="..."></td>
                         <td>{{repare.typeReparation.description}}</td>
                         <td style="font-weight: bold; color: coral;">{{repare.typeReparation.prixReparation}} €</td>
-                        <td data-label="Supprimer"><button class="bouton"  routerLink=""><img src="../assets/images/supr.png" width="50"></button></td>
+                        <td data-label="Supprimer"><button class="bouton"  (click)="openPopup()"><img src="../assets/images/supr.png" width="50"></button></td>
+                        <div
+                        class="modal"
+                        tabindex="-1"
+                        role="dialog"
+                        [ngStyle]="{'display':displayStyle}">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title"> Confirmation <img src="../assets/images/danger.png" width="35"></h4>
+                            </div>
+                            <div class="modal-body">
+                              <td><p>Voulez vous vraiment effacer la reparation : {{repare.typeReparation.nomTypeReparation}} </p></td>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" 
+                              (click)="confirme(repare.typeReparation._id)">
+                                               OUI
+                              </button>
+                              <button type="button" class="btn btn-warning" 
+                                      (click)="closePopup()">
+                                Close
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                       </tr>
                     </tbody>
                   </table>
