@@ -12,10 +12,15 @@ export class HeaderComponent implements OnInit{
   constructor(private router: Router){ }
 ngOnInit(): void {
   this.getroleUser();
+  this.getidUser();
 }
 getroleUser(){
   var rolesUtilisateur=localStorage.getItem('rolesUser');
   return rolesUtilisateur;
+}
+getidUser(){
+  var idUtilisateur=localStorage.getItem('idUser');
+  return idUtilisateur;
 }
 deconnexion() {
   localStorage.removeItem('idUser');
