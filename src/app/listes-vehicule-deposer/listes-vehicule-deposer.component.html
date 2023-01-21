@@ -30,33 +30,7 @@
                         <td><img src="../assets/images/{{repare.typeReparation.image}}" class="card-img-top" style="width:150px;height:150px" alt="..."></td>
                         <td>{{repare.typeReparation.description}}</td>
                         <td style="font-weight: bold; color: coral;">{{repare.typeReparation.prixReparation}} €</td>
-                        <td data-label="Supprimer"><button class="bouton"  (click)="openPopup()"><img src="../assets/images/supr.png" width="50"></button></td>
-                        <div
-                        class="modal"
-                        tabindex="-1"
-                        role="dialog"
-                        [ngStyle]="{'display':displayStyle}">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h4 class="modal-title"> Confirmation <img src="../assets/images/danger.png" width="35"></h4>
-                            </div>
-                            <div class="modal-body">
-                              <td><p>Voulez vous vraiment effacer la reparation : {{repare.typeReparation.nomTypeReparation}} </p></td>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-danger" 
-                              (click)="confirme(repare.typeReparation._id)">
-                                               OUI
-                              </button>
-                              <button type="button" class="btn btn-warning" 
-                                      (click)="closePopup()">
-                                Close
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                        <td data-label="Supprimer"><button class="bouton"  (click)="openPopup(repare._id)"><img src="../assets/images/supr.png" width="50"></button></td>
                       </tr>
                     </tbody>
                   </table>
@@ -67,6 +41,32 @@
           
         
       </section><!-- End Contact Section -->
+      <div
+      class="modal"
+      tabindex="-1"
+      role="dialog"
+      [ngStyle]="{'display':displayStyle}">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title"> Confirmation <img src="../assets/images/danger.png" width="35"></h4>
+          </div>
+          <div class="modal-body">
+            <td><p>Voulez vous vraiment effacer la reparation : {{listeReparation[0].typeReparation.nomTypeReparation}} </p></td>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" 
+            (click)="confirme(listeReparation[0]._id)">
+                             OUI
+            </button>
+            <button type="button" class="btn btn-warning" 
+                    (click)="closePopup()">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
       
 <app-footer></app-footer>
 

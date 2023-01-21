@@ -14,6 +14,7 @@ export class ListesVehiculeDeposerComponent {
   listeReparation!: Reparation[];
   Vehicule: Vehicule = new Vehicule();
   displayStyle = "none";
+  ReparationById!: Reparation[];
   constructor(private reparationservice: ReparationService, private depotVoitureService: DepotVoitureService){ }
 
   ngOnInit(): void {
@@ -35,8 +36,15 @@ export class ListesVehiculeDeposerComponent {
     console.log(t[2]);
     return t[2];
   }
-  openPopup() {
+  openPopup(_id:any) {
+    this.depotVoitureService.getListeReparationByReparation(_id)
+      .subscribe(
+        data => {
+          this.listeReparation=data;
+          console.log(data);
+        }) 
     this.displayStyle = "block";
+    this.listesVehiculesDeposer()
   }
   closePopup() {
     this.displayStyle = "none";

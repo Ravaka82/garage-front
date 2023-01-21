@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Vehicule } from '../Model/vehicule';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Reparation } from '../Model/Reparation';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class DepotVoitureService {
   Url2 = 'http://localhost:8080/api/vehicule/findVoitureClient';
   url3 = 'http://localhost:8080/api/vehicule/findVoitureValide'; 
   Url4 = 'http://localhost:8080/api/reparation/deleteReparation';
+  Url5 = 'http://localhost:8080/api/reparation/findReparationById';
 
   DepotVoiture(vehicule: Vehicule)
   {
@@ -29,5 +31,9 @@ export class DepotVoitureService {
   } 
   deleteReparation(_id:any){
     return this.http.delete<void>(`${this.Url4}/${_id}`);
+  }
+  getListeReparationByReparation(_id:any){
+    const repons =this.http.get<Reparation[]>(`${this.Url5}/${_id}`);
+    return repons;
   }
 }
