@@ -7,29 +7,31 @@
             <p>Listes des Vehicules deposer</p>
           </div>
             <div class="col-lg-12">
-                <table class="table table-hover table-dark table-striped table-responsive-lg" >
-                    <thead>
+                <table class="table table-hover table-striped table-responsive-lg" style=" box-shadow: 0 10px 10px rgba(0,0,0,.2);">
+                    <thead class="table-dark">
                       <tr>
                         <th scope="col">vehicule</th>
-                        <th scope="col">nom vehicule</th>
-                        <th scope="col">type vehicule</th>
+                        <th scope="col" class="text-center">nom vehicule</th>
+                        <th scope="col" class="text-center">type vehicule</th>
                         <th scope="col">Immatriculation</th>
                         <th scope="col" class="text-center">nom TypeReparation</th>
                         <th scope="col">image TypeReparation</th>
                         <th scope="col">description</th>
                         <th scope="col">prixReparation</th>
+                        <th scope="col">Suppression</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr *ngFor=" let repare of listeReparation">
-                        <td><img src="../assets/img/{{getlien(repare.vehicule.image)}}" class="card-img-top" style="width:200px;height:200px" alt="..."></td>
+                        <td><img src="../assets/img/{{getlien(repare.vehicule.image)}}" class="card-img-top" style="width:150px;height:150px" alt="..." ></td>
                         <td style="font-weight: bold; color: coral">{{repare.vehicule.nom}}</td>
                         <td>{{repare.vehicule.type}}</td>
                         <td>{{repare.vehicule.immatriculation}}</td>
                         <td style="font-weight: bold; color: coral">{{repare.typeReparation.nomTypeReparation}}</td>
-                        <td><img src="../assets/images/{{repare.typeReparation.image}}" class="card-img-top" style="width:200px;height:200px" alt="..."></td>
+                        <td><img src="../assets/images/{{repare.typeReparation.image}}" class="card-img-top" style="width:150px;height:150px" alt="..."></td>
                         <td>{{repare.typeReparation.description}}</td>
                         <td style="font-weight: bold; color: coral;">{{repare.typeReparation.prixReparation}} €</td>
+                        <td data-label="Supprimer"><button class="bouton"  routerLink=""><img src="../assets/images/supr.png" width="50"></button></td>
                       </tr>
                     </tbody>
                   </table>
