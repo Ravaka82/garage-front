@@ -71,6 +71,7 @@ export class RegisterUserComponent implements AfterViewInit {
        console.log(data);
        const d=JSON.parse(data);
        localStorage.setItem('idUser',d.id);
+       localStorage.setItem('NomUser',d.nom);
        localStorage.setItem('rolesUser',d.roles);
          //redirigen ref tsy mis erreur ka client
        if(d.roles=="ROLE_CLIENT"){

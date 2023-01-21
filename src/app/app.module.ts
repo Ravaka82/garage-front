@@ -22,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ListesvehiculesComponent } from './listesvehicules/listesvehicules.component';
 import { AcceuilfinancierComponent } from './acceuilfinancier/acceuilfinancier.component';
 import { AcceuilatelierComponent } from './acceuilatelier/acceuilatelier.component';
+import { ListesVehiculeDeposerComponent } from './listes-vehicule-deposer/listes-vehicule-deposer.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AcceuilatelierComponent } from './acceuilatelier/acceuilatelier.compone
     FooterComponent,
     ListesvehiculesComponent,
     AcceuilfinancierComponent,
-    AcceuilatelierComponent
+    AcceuilatelierComponent,
+    ListesVehiculeDeposerComponent
   ],
   imports: [
     BrowserModule,

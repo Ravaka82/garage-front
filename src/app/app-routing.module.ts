@@ -6,12 +6,14 @@ import { TemplateComponent } from './template/template.component';
 import { ListesvehiculesComponent } from './listesvehicules/listesvehicules.component';
 import { AcceuilfinancierComponent } from './acceuilfinancier/acceuilfinancier.component';
 import { AcceuilatelierComponent } from './acceuilatelier/acceuilatelier.component';
+import { ListesVehiculeDeposerComponent } from './listes-vehicule-deposer/listes-vehicule-deposer.component';
 
 const routes: Routes = [
   {path: 'login', component: RegisterUserComponent},
   {path: 'acceuil', component: AcceuilComponent},
   {path: 'Garage', component: TemplateComponent},
   {path: 'listesVehicules', component: ListesvehiculesComponent},
+  {path: 'listesVehiculesDeposer', component: ListesVehiculeDeposerComponent},
   {path: 'acceuilfinancier', component: AcceuilfinancierComponent},
   {path: 'acceuilatelier', component: AcceuilatelierComponent},
 ];

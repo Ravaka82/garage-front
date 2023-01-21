@@ -23,12 +23,14 @@ export class AcceuilComponent implements OnInit{
   Vehicules!: Vehicule[];
   nomVehicule!: string;
   vehiculeId: any;
+  NomUser :any;
   
   constructor(private _snackBar: MatSnackBar,private reparationservice : ReparationService,private depotservice: DepotVoitureService,private typeReparationservice: TypeReparationService,private router: Router) { }
 ngOnInit(){
   this.getData();
   this.listReparartion();
   this.getOneVoitureClient();
+  this.NomUser = localStorage.getItem('NomUser');
   
 }
 getData(){
@@ -89,8 +91,8 @@ listReparartion(): void{//function liste
     })
  }
  setVehiculeAndTypeReparationId(vehiculeId: any, typeReparationId: any) {
-  this.Reparations.vehiculeId = vehiculeId;
-  this.Reparations.typeReparationId = typeReparationId;
+  this.Reparations.vehicule = vehiculeId;
+  this.Reparations.typeReparation = typeReparationId;
 }
 getListeDepotVoiture(){
   console.log(this.Reparations);
@@ -121,4 +123,7 @@ getListeDepotVoiture(){
     });
   }
 )};
+listeTypeReparationChoisis(){
+  this.router.navigate(['listesVehiculesDeposer']);
+}
 }

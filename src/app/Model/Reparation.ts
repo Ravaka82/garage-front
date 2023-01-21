@@ -5,6 +5,6 @@ export class Reparation{
     _id!: string;
     avancement!: number;
     statusUneReparation!: boolean;
-    typeReparationId!: TypeReparation;
-    vehiculeId!:Vehicule;
+    typeReparation!: TypeReparation;
+    vehicule!:Vehicule;
 }

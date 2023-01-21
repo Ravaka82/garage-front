@@ -21,6 +21,6 @@
         transform: rotatey(0deg);
     }
     100%{
-        transform: rotatey(180deg);
+        transform: rotatey(360deg);
     }
 }

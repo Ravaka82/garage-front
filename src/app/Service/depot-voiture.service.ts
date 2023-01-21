@@ -10,7 +10,8 @@ export class DepotVoitureService {
   constructor(private http:HttpClient) { }
   UrlDepot= 'http://localhost:8080/api/vehicule/createVehicule';
   Url2 = 'http://localhost:8080/api/vehicule/findVoitureClient';
-  url3 = 'http://localhost:8080/api/vehicule/findVoitureValide';
+  url3 = 'http://localhost:8080/api/vehicule/findVoitureValide'; 
+
 
   DepotVoiture(vehicule: Vehicule)
   {
@@ -25,5 +26,6 @@ export class DepotVoitureService {
   getListeVoituresValide(utilisateurId: any){
     const repons =this.http.get<Vehicule[]>(`${this.url3}/${utilisateurId}`);
     return repons;
-  }
+  } 
+
 }
