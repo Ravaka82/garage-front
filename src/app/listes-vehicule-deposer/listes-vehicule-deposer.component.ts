@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Reparation } from '../Model/Reparation';
 import { Vehicule } from '../Model/vehicule';
 import { DepotVoitureService } from '../Service/depot-voiture.service';
@@ -15,19 +16,31 @@ export class ListesVehiculeDeposerComponent {
   Vehicule: Vehicule = new Vehicule();
   displayStyle = "none";
   ReparationById!: Reparation[];
-  constructor(private reparationservice: ReparationService, private depotVoitureService: DepotVoitureService){ }
+  pages: number = 1;
+  totallength: any;
+  config: any;
+  constructor(private reparationservice: ReparationService, private depotVoitureService: DepotVoitureService,private router: Router,private route: ActivatedRoute){
+    route.queryParams.subscribe(
+      params=>this.config.currentPage = params['page'] ? params['page']:1
+    )
+   }
 
   ngOnInit(): void {
     this.Vehicule.utilisateurId=localStorage.getItem('idUser');
     this.listesVehiculesDeposer();
     
   }
+  pageChange(newPage: number){
+    this.router.navigate([''],{queryParams: {page: newPage}});
+  }
+
   listesVehiculesDeposer(){
       this.Vehicule.utilisateurId=localStorage.getItem('idUser');
       this.reparationservice.getListeVoituresDeposer(this.Vehicule.utilisateurId)
       .subscribe(
         data => {
           this.listeReparation=data;
+          this.totallength= this.listeReparation.length;
           console.log(data);
         }) 
   }

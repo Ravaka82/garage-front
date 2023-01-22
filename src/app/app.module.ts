@@ -23,6 +23,7 @@ import { ListesvehiculesComponent } from './listesvehicules/listesvehicules.comp
 import { AcceuilfinancierComponent } from './acceuilfinancier/acceuilfinancier.component';
 import { AcceuilatelierComponent } from './acceuilatelier/acceuilatelier.component';
 import { ListesVehiculeDeposerComponent } from './listes-vehicule-deposer/listes-vehicule-deposer.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ListesVehiculeDeposerComponent } from './listes-vehicule-deposer/listes
     MatIconModule,
     MatSnackBarModule,
     HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

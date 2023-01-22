@@ -54,7 +54,7 @@
                 <h5> 2) Cliquez sur l'icone sous forme reparation voiture  <img src="../assets/images/repare.png" width="30"> pour choisir les reparations que vous souhaitez faire . </h5><br>
                
                 <div class="row">
-                  <div class="col-lg-3 col-md-6 d-flex align-items-stretch" *ngFor=" let typeReparation of TypeReparation">
+                  <div class="col-lg-3 col-md-6 d-flex align-items-stretch" *ngFor=" let typeReparation of TypeReparation | paginate: { itemsPerPage: 8, currentPage: pages,totalItems : totallength}">
                     <div class="card" style="overflow: hidden;">
                       <img src="../assets/images/{{typeReparation.image}}" height="200px"  class="card-img-top" alt="...">
                       <div class="card-body">
@@ -70,7 +70,10 @@
                   </div>
               </div>
             </form>
-           
+            <br>
+            <div fxLayoutAlign="center center" class="pagination">
+              <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+             </div> 
             </div>
           </div>  
       </section><!-- End Contact Section -->

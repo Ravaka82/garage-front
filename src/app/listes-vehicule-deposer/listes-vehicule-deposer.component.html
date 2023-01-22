@@ -21,7 +21,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor=" let repare of listeReparation">
+                      <tr *ngFor=" let repare of listeReparation | paginate: { itemsPerPage: 3, currentPage: pages,totalItems : totallength}">
                         <td><img src="../assets/img/{{getlien(repare.vehicule.image)}}" class="card-img-top" style="width:150px;height:150px" alt="..." ></td>
                         <td style="font-weight: bold; color: coral">{{repare.vehicule.nom}}</td>
                         <td>{{repare.vehicule.type}}</td>
@@ -33,7 +33,10 @@
                         <td data-label="Supprimer"><button class="bouton"  (click)="openPopup(repare._id)"><img src="../assets/images/supr.png" width="50"></button></td>
                       </tr>
                     </tbody>
-                  </table>
+                  </table><br>
+                  <div fxLayoutAlign="center center" class="pagination">
+                    <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+                   </div> 
             </div>
             
             

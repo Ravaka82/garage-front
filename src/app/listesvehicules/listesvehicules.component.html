@@ -19,7 +19,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor=" let vehicules of listeVehicule">
+                      <tr *ngFor=" let vehicules of listeVehicule | paginate: { itemsPerPage: 3, currentPage: pages,totalItems : totallength} ">
                         
                         <th scope="row"><img src="../assets/img/{{getlien(vehicules.image)}}" class="card-img-top" style="width:200px;height:200px" alt="..."></th>
                         <td>{{vehicules.nom}}</td>
@@ -30,6 +30,10 @@
                       </tr>
                     </tbody>
                   </table>
+                  <br>
+                  <div fxLayoutAlign="center center" class="pagination">
+                    <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+                   </div> 
             </div>
             
             

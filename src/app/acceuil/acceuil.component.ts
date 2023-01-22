@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehicule } from '../Model/vehicule';
 import { DepotVoitureService } from '../Service/depot-voiture.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {MatSnackBar,MatSnackBarConfig} from '@angular/material/snack-bar';//fanaovana alert 
 import { HttpErrorResponse } from '@angular/common/http';
 import { TypeReparationService } from '../Service/type-reparation.service';
@@ -24,15 +24,26 @@ export class AcceuilComponent implements OnInit{
   nomVehicule!: string;
   vehiculeId: any;
   NomUser :any;
+  pages: number = 1;
+  totallength: any;
+  config: any;
   
-  constructor(private _snackBar: MatSnackBar,private reparationservice : ReparationService,private depotservice: DepotVoitureService,private typeReparationservice: TypeReparationService,private router: Router) { }
-ngOnInit(){
-  this.getData();
-  this.listReparartion();
-  this.getOneVoitureClient();
-  this.NomUser = localStorage.getItem('NomUser');
-  
-}
+  constructor(private _snackBar: MatSnackBar,private reparationservice : ReparationService,private depotservice: DepotVoitureService,private typeReparationservice: TypeReparationService,private router: Router,private route: ActivatedRoute){
+    route.queryParams.subscribe(
+      params=>this.config.currentPage = params['page'] ? params['page']:1
+    )
+   }
+  ngOnInit(){
+    this.getData();
+    this.listReparartion();
+    this.getOneVoitureClient();
+    this.NomUser = localStorage.getItem('NomUser');
+    
+  }
+  pageChange(newPage: number){
+    this.router.navigate([''],{queryParams: {page: newPage}});
+  }
+
 getData(){
   let f=localStorage.getItem('idUser');
   //console.log(f);
@@ -78,6 +89,7 @@ listReparartion(): void{//function liste
     .subscribe(
       data => {
         this.TypeReparation=data;
+        this.totallength = this.TypeReparation.length;
       })
  }
  getOneVoitureClient(){

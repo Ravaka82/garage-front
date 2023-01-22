@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Vehicule } from '../Model/vehicule';
 import { DepotVoitureService } from '../Service/depot-voiture.service';
 
@@ -10,9 +11,17 @@ import { DepotVoitureService } from '../Service/depot-voiture.service';
 export class ListesvehiculesComponent implements OnInit{
   Vehicule: Vehicule = new Vehicule();
   listeVehicule!: Vehicule[];
-
-  constructor(private depotservice: DepotVoitureService){ }
-
+  pages: number = 1;
+  totallength: any;
+  config: any;
+  constructor(private depotservice: DepotVoitureService ,private router: Router,private route: ActivatedRoute){ 
+    route.queryParams.subscribe(
+      params=>this.config.currentPage = params['page'] ? params['page']:1
+    )
+  }
+  pageChange(newPage: number){
+    this.router.navigate([''],{queryParams: {page: newPage}});
+  }
   ngOnInit(): void {
 
     this.listesVehiculesValide();
@@ -24,6 +33,7 @@ export class ListesvehiculesComponent implements OnInit{
       .subscribe(
         data => {
           this.listeVehicule=data;
+          this.totallength= this.listeVehicule.length;
           console.log(data);
         }) 
   }

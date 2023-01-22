@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TypeReparation } from '../Model/TypeReparation';
 import { TypeReparationService } from '../Service/type-reparation.service';
 import {MatSnackBar,MatSnackBarConfig} from '@angular/material/snack-bar';
@@ -10,8 +10,17 @@ import {MatSnackBar,MatSnackBarConfig} from '@angular/material/snack-bar';
 })
 export class TemplateComponent {
   TypeReparation!: TypeReparation[];
-  constructor(private _snackBar: MatSnackBar,private typeReparationservice: TypeReparationService,private router: Router) { }
-
+  pages: number = 1;
+  totallength: any;
+  config: any;
+  constructor(private _snackBar: MatSnackBar,private typeReparationservice: TypeReparationService,private router: Router,private route: ActivatedRoute){ 
+    route.queryParams.subscribe(
+      params=>this.config.currentPage = params['page'] ? params['page']:1
+    )
+  }
+  pageChange(newPage: number){
+    this.router.navigate([''],{queryParams: {page: newPage}});
+  }
   ngOnInit(): void{
     this.listReparartion();
   }
@@ -21,6 +30,7 @@ export class TemplateComponent {
       .subscribe(
         data => {
           this.TypeReparation=data;
+          this.totallength =   this.TypeReparation.length;
         })
    }
    depotVoiture(){ //redirection le rehefa avy mpototra le icone reparation
