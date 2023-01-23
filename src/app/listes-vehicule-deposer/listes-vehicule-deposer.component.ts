@@ -20,16 +20,26 @@ export class ListesVehiculeDeposerComponent {
   totallength: any;
   totalPrice: any;
   config: any;
+  VehiculeReparer!: Vehicule[];
   constructor(private reparationservice: ReparationService, private depotVoitureService: DepotVoitureService,private router: Router,private route: ActivatedRoute){
    }
 
   ngOnInit(): void {
     this.Vehicule.utilisateurId=localStorage.getItem('idUser');
     this.listesVehiculesDeposer();
+    this.listeVehiculeParUtilisateur();
     
   }
   pageChange(newPage: number){
     this.router.navigate([''],{queryParams: {page: newPage}});
+  }
+  listeVehiculeParUtilisateur(){//listes vehicules user izay ho atao reparation
+    this.Vehicule.utilisateurId=localStorage.getItem('idUser');
+this.reparationservice.getListeVehiculeDeposer(this.Vehicule.utilisateurId).subscribe(
+  data => {
+    this.VehiculeReparer=data;
+    console.log(data);
+  }) 
   }
 
   listesVehiculesDeposer(){
