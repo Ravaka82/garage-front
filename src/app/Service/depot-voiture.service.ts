@@ -14,6 +14,7 @@ export class DepotVoitureService {
   url3 = 'http://localhost:8080/api/vehicule/findVoitureValide'; 
   Url4 = 'http://localhost:8080/api/reparation/deleteReparation';
   Url5 = 'http://localhost:8080/api/reparation/findReparationById';
+  Url6 = 'http://localhost:8080/api/reparation/listeDepotVoitureParVoiture';
 
   DepotVoiture(vehicule: Vehicule)
   {
@@ -34,6 +35,10 @@ export class DepotVoitureService {
   }
   getListeReparationByReparation(_id:any){
     const repons =this.http.get<Reparation[]>(`${this.Url5}/${_id}`);
+    return repons;
+  }
+  getListeReparationParVehicule(utilisateur:any , vehicule: any){
+    const repons =this.http.get<Reparation[]>(`${this.Url6}/${utilisateur}/${vehicule}`);
     return repons;
   }
 }
