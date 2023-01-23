@@ -29,9 +29,6 @@ export class AcceuilComponent implements OnInit{
   config: any;
   
   constructor(private _snackBar: MatSnackBar,private reparationservice : ReparationService,private depotservice: DepotVoitureService,private typeReparationservice: TypeReparationService,private router: Router,private route: ActivatedRoute){
-    route.queryParams.subscribe(
-      params=>this.config.currentPage = params['page'] ? params['page']:1
-    )
    }
   ngOnInit(){
     this.getData();

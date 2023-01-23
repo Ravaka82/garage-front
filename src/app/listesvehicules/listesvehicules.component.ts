@@ -15,9 +15,6 @@ export class ListesvehiculesComponent implements OnInit{
   totallength: any;
   config: any;
   constructor(private depotservice: DepotVoitureService ,private router: Router,private route: ActivatedRoute){ 
-    route.queryParams.subscribe(
-      params=>this.config.currentPage = params['page'] ? params['page']:1
-    )
   }
   pageChange(newPage: number){
     this.router.navigate([''],{queryParams: {page: newPage}});

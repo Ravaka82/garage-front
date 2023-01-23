@@ -30,7 +30,7 @@
                         <td><img src="../assets/images/{{repare.typeReparation.image}}" class="card-img-top" style="width:150px;height:150px" alt="..."></td>
                         <td>{{repare.typeReparation.description}}</td>
                         <td style="font-weight: bold; color: coral;">{{repare.typeReparation.prixReparation}} €</td>
-                        <td data-label="Supprimer"><button class="bouton"  (click)="openPopup(repare._id)"><img src="../assets/images/supr.png" width="50"></button></td>
+                        <td><button class="bouton"  (click)="openPopup(repare._id)"><img src="../assets/images/supr.png" width="50"></button></td>
                       </tr>
                     </tbody>
                   </table><br>
@@ -38,12 +38,11 @@
                     <pagination-controls (pageChange)="pages = $event"></pagination-controls>
                    </div> 
             </div>
-            
-            
           </div>
-          
-        
       </section><!-- End Contact Section -->
+      <div style="margin-left:1250px;">
+        <h4 style="color:coral;font-weight: bold;">TOTAL A PAYER: {{this.totalPrice}} €</h4>
+      </div>
       <div
       class="modal"
       tabindex="-1"

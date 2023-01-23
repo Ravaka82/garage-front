@@ -18,11 +18,9 @@ export class ListesVehiculeDeposerComponent {
   ReparationById!: Reparation[];
   pages: number = 1;
   totallength: any;
+  totalPrice: any;
   config: any;
   constructor(private reparationservice: ReparationService, private depotVoitureService: DepotVoitureService,private router: Router,private route: ActivatedRoute){
-    route.queryParams.subscribe(
-      params=>this.config.currentPage = params['page'] ? params['page']:1
-    )
    }
 
   ngOnInit(): void {
@@ -41,6 +39,11 @@ export class ListesVehiculeDeposerComponent {
         data => {
           this.listeReparation=data;
           this.totallength= this.listeReparation.length;
+          this.totalPrice =  this.listeReparation.map(a => a.typeReparation.prixReparation).reduce(function(a, b)
+          {
+             return a + b;
+          });
+          console.log( this.totalPrice )
           console.log(data);
         }) 
   }
