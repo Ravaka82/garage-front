@@ -15,6 +15,7 @@ export class ListesreparationsparvehiculeComponent implements OnInit {
   displayStyle = "none";
   pages: number = 1;
   totallength: any;
+  totalPrice: any;
   constructor(private depotVoitureService: DepotVoitureService,private router: Router,private route: ActivatedRoute){
   }
 ngOnInit(): void {
@@ -26,7 +27,13 @@ getListesReparationsParVehicule(){
   .subscribe(
     data => {
       this.AllReparation=data;
-      console.log(data);
+      this.totallength= this.AllReparation.length;
+          this.totalPrice =  this.AllReparation.map(a => a.typeReparation.prixReparation).reduce(function(a, b)
+          {
+             return a + b;
+          });
+          console.log( this.totalPrice )
+          console.log(data); 
     }) 
 }
 pageChange(newPage: number){
