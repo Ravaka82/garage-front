@@ -25,6 +25,7 @@ getidUser(){
 deconnexion() {
   localStorage.removeItem('idUser');
   localStorage.removeItem('rolesUser');
+  localStorage.removeItem('NomUser');
   this.router.navigate(['Garage']);
 }
 }
