@@ -1,6 +1,6 @@
 <div class="login-page">
-  <mat-card class="mat-elevation-z12">
-    <mat-card-title style="text-align:center;">Login / SignUp</mat-card-title>
+  <mat-card class="mat-elevation-z12" style="margin-left: 350px;">
+    <mat-card-title style="text-align:center;">Login Client / SignUp</mat-card-title>
     <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
       <mat-tab label="Sign In">
           <mat-card-content>
@@ -100,4 +100,91 @@
       </mat-tab>
     </mat-tab-group>
   </mat-card>
+
+
+
+
+  
 </div>
+<mat-card class="mat-elevation-z12" style="margin-top: -627px;margin-right:350px;">
+  <mat-card-title style="text-align:center;">Login Financier / Login Atelier</mat-card-title>
+  <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+    <mat-tab label="Login Financier">
+        <mat-card-content>
+          <form  (ngSubmit)="boutonLoginFinancier()">
+            <mat-form-field>
+              <input
+                matInput
+                required
+                required [(ngModel)]="nomFinancier" name="nomFinancier" value="{{nomFinancier}}">
+             
+              <mat-icon matSuffix>nom</mat-icon>
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                type="password"
+                required
+                minlength="6"
+                required  [(ngModel)]="motdepasseFinancier"  name="motdepasseFinancier" value="{{motdepasseFinancier}}">
+                <!-- <mat-error
+                  *ngIf="password.errors && password.errors['required']">
+                  Password is required
+                </mat-error>
+                <mat-error
+                  *ngIf="password.errors && password.errors['minlength']">
+                  Password must be of length 6
+                </mat-error> -->
+              <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+            <mat-checkbox>Remember Me!</mat-checkbox>
+            <button
+              mat-raised-button
+              color="primary"
+              class="login-button">
+              Sign In
+            </button>
+          </form>
+        </mat-card-content>
+    </mat-tab>
+    <mat-tab label="Login Atelier">
+      <mat-card-content>
+        <form (ngSubmit)="ButtonLoginAtelier()">
+          <mat-form-field>
+            <input
+              matInput
+              required
+              required [(ngModel)]="nomAtelier" name="nomAtelier" value="{{nomAtelier}}">
+           
+            <mat-icon matSuffix>nom</mat-icon>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              type="password"
+              required
+              minlength="6"
+              required [(ngModel)]="motdepasseAtelier"  name="motdepasseAtelier" value="{{motdepasseAtelier}}">
+              <!-- <mat-error
+                *ngIf="password.errors && password.errors['required']">
+                Password is required
+              </mat-error>
+              <mat-error
+                *ngIf="password.errors && password.errors['minlength']">
+                Password must be of length 6
+              </mat-error> -->
+            <mat-icon matSuffix>lock</mat-icon>
+          </mat-form-field>
+          <mat-checkbox>Remember Me!</mat-checkbox>
+          <button
+            mat-raised-button
+            color="primary"
+            class="login-button">
+            Sign In
+          </button>
+        </form>
+      </mat-card-content>
+  </mat-tab>
+    
+  </mat-tab-group>
+</mat-card>

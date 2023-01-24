@@ -18,10 +18,18 @@ export class RegisterUserComponent implements AfterViewInit {
   nom!: string;
   Utilisateur: Utilisateur = new Utilisateur();
   submitted = false;
+  nomFinancier!: string;
+  motdepasseFinancier!: string;
+  nomAtelier!: string;
+  motdepasseAtelier!:string;
 
   constructor(private _snackBar: MatSnackBar,private roleservice: RoleServiceService,private utilisateurservice: UtilisateurService,private router: Router,private loginservice: LoginService) { }
   ngAfterViewInit(): void { 
     this.listRole();
+    this.nomFinancier="rakoto";
+    this.motdepasseFinancier="12345678";
+    this.nomAtelier="Atelier";
+    this.motdepasseAtelier="aaaaaaaa";
   }
   listRole(): void{// findRole
     this. roleservice.getAllRole()
@@ -73,19 +81,10 @@ export class RegisterUserComponent implements AfterViewInit {
        localStorage.setItem('idUser',d.id);
        localStorage.setItem('NomUser',d.nom);
        localStorage.setItem('rolesUser',d.roles);
-         //redirigen ref tsy mis erreur ka client
-       if(d.roles=="ROLE_CLIENT"){
        this.router.navigate(['/acceuil']);
+       if(d.roles=="ROLE_RESPONSABLE_FINANCIER" || d.roles=="ROLE_RESPONSABLE_ATELIER"){
+        this.router.navigate(['/login']);
        }
-       //redirigen ref tsy mis erreur ka financier
-       if(d.roles=="ROLE_RESPONSABLE_FINANCIER"){
-        this.router.navigate(['/acceuilfinancier']);
-       }
-       //redirigen ref tsy mis erreur ka atelier
-       if(d.roles=="ROLE_RESPONSABLE_ATELIER"){
-        this.router.navigate(['/acceuilatelier']);
-       }
-      
      },
      //message d'erreur
      (error: HttpErrorResponse)=>{
@@ -103,5 +102,66 @@ export class RegisterUserComponent implements AfterViewInit {
    boutonLogin(){
     this.submitted = true;
     this.LoginUtilisateur();  
+   }
+
+   LoginFinancier(){
+    this.loginservice.loginUtilisateur(this.nomFinancier,this.motdepasseFinancier)
+   .subscribe(
+     (data:string) => {
+       console.log(data);
+       const d=JSON.parse(data);
+       localStorage.setItem('idUser',d.id);
+       localStorage.setItem('NomUser',d.nom);
+       localStorage.setItem('rolesUser',d.roles);
+        this.router.navigate(['/acceuilfinancier']);
+        if(d.roles=="ROLE_CLIENT" || d.roles=="ROLE_RESPONSABLE_ATELIER"){
+          this.router.navigate(['/login']);
+         }
+     },
+     //message d'erreur
+     (error: HttpErrorResponse)=>{
+       const fd= JSON.parse(error.error);
+      this._snackBar.open( fd.message , 'Close',{
+        duration:500000,
+        // css matsnack bar dia any amn style.css ny css anreo
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+        panelClass: ['warning-alert']
+      });
+    }) 
+   }
+   boutonLoginFinancier(){
+    this.submitted = true;
+    this.LoginFinancier();  
+   }
+   LoginAtelier(){
+    this.loginservice.loginUtilisateur(this.nomAtelier,this.motdepasseAtelier)
+   .subscribe(
+     (data:string) => {
+       console.log(data);
+       const d=JSON.parse(data);
+       localStorage.setItem('idUser',d.id);
+       localStorage.setItem('NomUser',d.nom);
+       localStorage.setItem('rolesUser',d.roles);
+        this.router.navigate(['/acceuilatelier']);
+        if(d.roles=="ROLE_CLIENT" || d.roles=="ROLE_RESPONSABLE_FINANCIER"){
+          this.router.navigate(['/login']);
+         }
+     },
+     //message d'erreur
+     (error: HttpErrorResponse)=>{
+       const fd= JSON.parse(error.error);
+      this._snackBar.open( fd.message , 'Close',{
+        duration:500000,
+        // css matsnack bar dia any amn style.css ny css anreo
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+        panelClass: ['warning-alert']
+      });
+    }) 
+   }
+   ButtonLoginAtelier(){
+    this.submitted = true;
+    this.LoginAtelier();  
    }
 }
