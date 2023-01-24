@@ -18,6 +18,9 @@ export class AcceuilfinancierComponent implements OnInit{
   Utilisateur: Utilisateur = new Utilisateur();
   idVehicule: string = "";
   estPayer: boolean = false;
+  pages: number = 1;
+  totallength: any;
+  totalPrice: any;
   constructor(private _snackBar: MatSnackBar,private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){}
 
   ngOnInit(): void {
@@ -31,7 +34,8 @@ export class AcceuilfinancierComponent implements OnInit{
       data => {
         this.ListesPaiementAttente=data;
         this.idVehicule = data[0].vehicule._id;
-        if(data[0].vehicule.status==="valide") this.estPayer = true
+        if(data[0].vehicule.status==="valide") this.estPayer = true;
+        this.totallength= this.ListesPaiementAttente.length;
       })
   }
   getlien(val: string){
@@ -54,6 +58,8 @@ export class AcceuilfinancierComponent implements OnInit{
       }
     )
   }
-  
+  pageChange(newPage: number){
+    this.router.navigate([''],{queryParams: {page: newPage}});
   }
+}
 
