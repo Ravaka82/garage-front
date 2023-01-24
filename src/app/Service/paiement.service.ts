@@ -11,6 +11,7 @@ export class PaiementService {
   UrlDepot= 'http://localhost:8080/api/paiement/validerPaiement';
   url2='http://localhost:8080/api/paiement/findVehiculeEnAttente';
   Url3='http://localhost:8080/api/paiement/accepterPaiement';
+  Url4='http://localhost:8080/api/paiement/getAllPaiementValider';
 
   ValidationPaiement(vehicule: String, prix: number) {
     return this.http.post<Paiement>(this.UrlDepot, {vehicule, prix});
@@ -21,5 +22,8 @@ export class PaiementService {
   }
   ValidationPaiementEnAttente(vehicule: String){
     return this.http.post<Paiement>(this.Url3, {vehicule});
+  }
+  getListeVoitureValider(){
+    return this.http.get<Paiement[]>(this.Url4);
   }
 }
