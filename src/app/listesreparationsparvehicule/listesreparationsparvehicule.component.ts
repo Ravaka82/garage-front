@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DepotVoitureService } from '../Service/depot-voiture.service';
 import { Reparation } from '../Model/Reparation';
 import { Vehicule } from '../Model/vehicule';
+import { PaiementService } from '../Service/paiement.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-listesreparationsparvehicule',
@@ -16,7 +18,9 @@ export class ListesreparationsparvehiculeComponent implements OnInit {
   pages: number = 1;
   totallength: any;
   totalPrice: any;
-  constructor(private depotVoitureService: DepotVoitureService,private router: Router,private route: ActivatedRoute){
+  idVehicule: string = "";
+  estPayer: boolean = false;
+  constructor(private _snackBar: MatSnackBar,private depotVoitureService: DepotVoitureService,private router: Router,private route: ActivatedRoute, private paiementService: PaiementService){
   }
 ngOnInit(): void {
   this.getListesReparationsParVehicule();
@@ -27,6 +31,8 @@ getListesReparationsParVehicule(){
   .subscribe(
     data => {
       this.AllReparation=data;
+      this.idVehicule=data[0].vehicule._id;
+      if(data[0].vehicule.status==="en attente") this.estPayer = true
       this.totallength= this.AllReparation.length;
           this.totalPrice =  this.AllReparation.map(a => a.typeReparation.prixReparation).reduce(function(a, b)
           {
@@ -62,4 +68,22 @@ this.depotVoitureService.deleteReparation(_id)
     console.log(data);
   }) 
 }
+
+procederpaiement(){
+  console.log(this.idVehicule);
+  console.log(this.totalPrice);
+  this.paiementService.ValidationPaiement(this.idVehicule, this.totalPrice).subscribe(
+    data=> {
+      this._snackBar.open("Payer avec succès", 'Close',{
+        duration:500000,
+        // css matsnack bar dia any amn style.css ny css anreo
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+        panelClass: ['success-alert']
+      });
+      this.getListesReparationsParVehicule()
+    }
+  )
+}
+
 }

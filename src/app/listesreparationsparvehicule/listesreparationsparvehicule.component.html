@@ -35,7 +35,7 @@
       </div>
   </section>
   <div style="margin-left:1200px;margin-top: -30px;">
-    <h4 style="color:coral;font-weight: bold;">TOTAL A PAYER: {{this.totalPrice}} €</h4>
+    <h4 style="color:coral;font-weight: bold;">TOTAL A PAYER: <button class="btn btn-warning" [disabled]="estPayer" (click)="procederpaiement()">{{this.totalPrice}} €</button></h4>
   </div> 
   <div
   class="modal"
