@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Paiement } from '../Model/Paiement';
 import { Utilisateur } from '../Model/Utilisateur';
@@ -15,8 +16,9 @@ export class AcceuilfinancierComponent implements OnInit{
   ListesPaiementAttente!: Paiement[];
   Vehicule: Vehicule = new Vehicule();
   Utilisateur: Utilisateur = new Utilisateur();
-
-  constructor(private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){}
+  idVehicule: string = "";
+  estPayer: boolean = false;
+  constructor(private _snackBar: MatSnackBar,private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){}
 
   ngOnInit(): void {
   this.nameFinancier = localStorage.getItem('idUser');
@@ -28,6 +30,8 @@ export class AcceuilfinancierComponent implements OnInit{
       .subscribe(
       data => {
         this.ListesPaiementAttente=data;
+        this.idVehicule = data[0].vehicule._id;
+        if(data[0].vehicule.status==="valide") this.estPayer = true
       })
   }
   getlien(val: string){
@@ -35,4 +39,21 @@ export class AcceuilfinancierComponent implements OnInit{
     console.log(t[2]);
     return t[2];
   }
-}
+  validerpaiement(){
+    console.log(this.idVehicule);
+    this.paiementservice.ValidationPaiementEnAttente(this.idVehicule).subscribe(
+      data=> {
+        this._snackBar.open("Payer avec succès", 'Close',{
+          duration:500000,
+          // css matsnack bar dia any amn style.css ny css anreo
+          verticalPosition: 'top',
+          horizontalPosition: 'right',
+          panelClass: ['success-alert']
+        });
+        this.getListesVehiculeEnAttente()
+      }
+    )
+  }
+  
+  }
+

@@ -17,7 +17,7 @@
                   <p class="card-text" style="font-size:medium;font-weight: bold;color:goldenrod">TOTAL PAYER : {{vehiculeAttente.vehicule.totalPrixReparation}} €</p>
                   <button class="btn btn-warning" routerLink="/ReparationsPayer/{{vehiculeAttente.vehicule._id}}">voir réparations
                  </button><br>
-                 <button class="btn btn-sucess" routerLink="" type="submit">valider paiement
+                 <button class="btn btn-sucess"  [disabled]="estPayer"  (click)="validerpaiement()" type="submit">valider paiement
                 </button>
                 </div>
               </div>
