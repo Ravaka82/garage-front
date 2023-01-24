@@ -8,9 +8,9 @@ import { Vehicule } from '../Model/vehicule';
 })
 export class ReparationService {
   constructor(private http:HttpClient) { }
-  Url1='http://localhost:8081/api/reparation/createReparation';
-  Url2='http://localhost:8081/api/reparation/findDepotReparationParVoiture';
-  url3='http://localhost:8081/api/reparation/listeVehiculeDepot';
+  Url1='http://localhost:8080/api/reparation/createReparation';
+  Url2='http://localhost:8080/api/reparation/findDepotReparationParVoiture';
+  url3='http://localhost:8080/api/reparation/listeVehiculeDepot';
   creationReparation(reparation: Reparation)
   {
     console.log(reparation._id)
