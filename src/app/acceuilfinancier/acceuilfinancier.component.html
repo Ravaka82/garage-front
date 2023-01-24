@@ -1,3 +1,35 @@
 <app-header></app-header>
-<p>acceuilfinancier works!</p>
+    <section id="pricing" class="pricing">
+        <div class="container">
+          <div class="section-title" data-aos="zoom-out">
+            <h2> Client {{ this.nameFinancier}}</h2>
+            <p>Listes des Vehicules deposer</p>
+          </div>
+          <div class="col-lg-12">
+          <div class="row">
+            <!-- <div class="col-lg-3 col-md-6 d-flex align-items-stretch" *ngFor=" let vehiculerepare of VehiculeReparer | paginate: { itemsPerPage: 8, currentPage: pages,totalItems : totallength}"> -->
+             <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="card" style="overflow: hidden;">
+                <img src="../assets/img/img6.webp" height="200px"  class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title" style="color:chocolate;font-weight:bold">nom vehicule</h5>
+                  <p class="card-text" style="font-size:medium;font-weight: bold;">immatriculation</p>
+                  <p class="card-text" style="font-size:medium;font-weight: bold;color:goldenrod">TOTAL PAYER : 30000000 €</p>
+                  <button class="btn btn-warning" routerLink="" type="submit">voir réparations
+                 </button><br>
+                 <button class="btn btn-sucess" routerLink="" type="submit">valider paiement
+                </button>
+                </div>
+              </div>
+            </div>
+            
+        </div><br>
+        <!-- <div fxLayoutAlign="center center" class="pagination">
+          <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+         </div> -->
+      </div>
+      
+      </div>
+      </section>      
 <app-footer></app-footer>
+
