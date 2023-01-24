@@ -25,6 +25,7 @@ import { AcceuilatelierComponent } from './acceuilatelier/acceuilatelier.compone
 import { ListesVehiculeDeposerComponent } from './listes-vehicule-deposer/listes-vehicule-deposer.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ListesreparationsparvehiculeComponent } from './listesreparationsparvehicule/listesreparationsparvehicule.component';
+import { ListesreparationsattenteComponent } from './listesreparationsattente/listesreparationsattente.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ListesreparationsparvehiculeComponent } from './listesreparationsparveh
     AcceuilfinancierComponent,
     AcceuilatelierComponent,
     ListesVehiculeDeposerComponent,
-    ListesreparationsparvehiculeComponent
+    ListesreparationsparvehiculeComponent,
+    ListesreparationsattenteComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { AcceuilfinancierComponent } from './acceuilfinancier/acceuilfinancier.c
 import { AcceuilatelierComponent } from './acceuilatelier/acceuilatelier.component';
 import { ListesVehiculeDeposerComponent } from './listes-vehicule-deposer/listes-vehicule-deposer.component';
 import { ListesreparationsparvehiculeComponent } from './listesreparationsparvehicule/listesreparationsparvehicule.component';
+import { ListesreparationsattenteComponent } from './listesreparationsattente/listesreparationsattente.component';
 
 const routes: Routes = [
   {path: 'login', component: RegisterUserComponent},
@@ -17,7 +18,9 @@ const routes: Routes = [
   {path: 'listesVehiculesDeposer', component: ListesVehiculeDeposerComponent},
   {path: 'acceuilfinancier', component: AcceuilfinancierComponent},
   {path: 'acceuilatelier', component: AcceuilatelierComponent},
-  {path: 'listeReparationParVehicule/:id', component: ListesreparationsparvehiculeComponent}
+  {path: 'listeReparationParVehicule/:id', component: ListesreparationsparvehiculeComponent},
+  {path: 'ReparationsPayer/:id', component: ListesreparationsattenteComponent}
+
 ];
 
 @NgModule({

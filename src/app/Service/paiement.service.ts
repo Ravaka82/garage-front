@@ -8,9 +8,14 @@ import { catchError } from 'rxjs/operators';
 })
 export class PaiementService {
   constructor(private http: HttpClient) { }
-  UrlDepot= 'http://localhost:8080/api/paiement/validerPaiement';
+  UrlDepot= 'http://localhost:8081/api/paiement/validerPaiement';
+  url2='http://localhost:8081/api/paiement/findVehiculeEnAttente';
 
   ValidationPaiement(vehicule: String, prix: number) {
     return this.http.post<Paiement>(this.UrlDepot, {vehicule, prix});
+  }
+  getReparationVehiculePayerEnAttente()
+  {
+    return this.http.get<Paiement[]>(this.url2);
   }
 }
