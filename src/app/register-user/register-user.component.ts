@@ -76,7 +76,7 @@ export class RegisterUserComponent implements AfterViewInit {
    this.loginservice.loginUtilisateur(this.Utilisateur.nom,this.Utilisateur.mot_de_passe)
    .subscribe(
      (data:string) => {
-       console.log(data);
+       console.log("donnee "+data);
        const d=JSON.parse(data);
        localStorage.setItem('idUser',d.id);
        localStorage.setItem('NomUser',d.nom);
