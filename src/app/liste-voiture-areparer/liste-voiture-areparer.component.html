@@ -3,17 +3,12 @@
         <div class="container">
           <div class="section-title" data-aos="zoom-out">
             <h2>Responsable atelier {{ this.nameAtelier}}</h2>
-            <p>Listes des Vehicules à reparer</p>
+            <p>Listes reparations voiture</p>
           </div>
           <div cdkDropListGroup>
             <div class="example-container">
               <h2>A Reparer</h2>
-              <div
-                cdkDropList
-                [cdkDropListData]="ListesReparations"
-                class="example-list"
-                cdkDropListSortingDisabled
-                (cdkDropListDropped)="drop($event)">
+              <div cdkDropList id="cdkDropList-0" [cdkDropListData]="ListesReparations" class="example-list" cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
                 <div class="example-box" *ngFor="let item of ListesReparations" cdkDrag>
                   <div  >
                     <div class="card" style="overflow: hidden;">
@@ -28,19 +23,12 @@
             </div>
             <div class="example-container">
               <h2> En cours</h2>
-              <div
-                cdkDropList
-                [cdkDropListData]="todo"
-                class="example-list"
-                cdkDropListSortingDisabled
-                (cdkDropListDropped)="drop($event)">
+              <div cdkDropList id="cdkDropList-1" [cdkDropListData]="todo" class="example-list" cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
                 <div class="example-box" *ngFor="let item of todo" cdkDrag>
-                  <div  >
-                    <div class="card" style="overflow: hidden;">
-                      <img src="../assets/images/{{item}}" height="200px"  class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title" style="color:chocolate;font-weight:bold">{{item}}</h5>
-                      </div>
+                  <div class="card" style="overflow: hidden;">
+                    <img src="../assets/images/{{item.typeReparation.image}}" height="200px"  class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title" style="color:chocolate;font-weight:bold">{{item.typeReparation.nomTypeReparation}}</h5>
                     </div>
                   </div>
                 </div>
@@ -48,23 +36,16 @@
             </div>
             <div class="example-container">
               <h2> Terminée</h2>
-              <div
-                cdkDropList
-                [cdkDropListData]="done"
-                class="example-list"
-                cdkDropListSortingDisabled
-                (cdkDropListDropped)="drop($event)">
+              <div cdkDropList id="cdkDropList-2" [cdkDropListData]="done" class="example-list" cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
                 <div class="example-box" *ngFor="let item of done" cdkDrag>
-                  <div  >
-                    <div class="card" style="overflow: hidden;">
-                      <img src="../assets/images/{{item}}" height="200px"  class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title" style="color:chocolate;font-weight:bold">{{item}}</h5>
-                      </div>
+                  <div class="card" style="overflow: hidden;">
+                    <img src="../assets/images/{{item.typeReparation.image}}" height="200px"  class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title" style="color:chocolate;font-weight:bold">{{item.typeReparation.nomTypeReparation}}</h5>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>              
             </div>
           </div>
         </div>

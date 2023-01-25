@@ -12,11 +12,13 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 })
 export class ListeVoitureAreparerComponent {
   nameAtelier: any;
-  ListesReparations!: Reparation[];
-  constructor(private serviceReparation: ReparationService,private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){}
-  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
-
-  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
+  ListesReparations: Reparation[] = [];
+  constructor(private serviceReparation: ReparationService,private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){
+    this.todo = [];
+    this.done = [];
+  }
+  todo!: Reparation[];
+  done!: Reparation[];
 
   ngOnInit(): void {
   this.nameAtelier = localStorage.getItem('idUser');
@@ -32,18 +34,23 @@ export class ListeVoitureAreparerComponent {
         console.log("data"+ this.ListesReparations);
       }) 
   }
-  drop(event: CdkDragDrop<any[]>) {
+  drop(event: CdkDragDrop<Reparation[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex,
-      );
+      if (event.container.id === 'cdkDropList-1') {
+        this.todo.push(event.previousContainer.data[event.previousIndex]);
+      }
+      if (event.container.id === 'cdkDropList-2') {
+        this.done.push(event.previousContainer.data[event.previousIndex]);
+      }
+      event.previousContainer.data.splice(event.previousIndex,1);
     }
   }
+  
+  
+
+
   getlien(val: string){
     var t=val.split("\\");
     console.log(t[2]);
