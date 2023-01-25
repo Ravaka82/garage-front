@@ -28,6 +28,7 @@ import { ListesreparationsparvehiculeComponent } from './listesreparationsparveh
 import { ListesreparationsattenteComponent } from './listesreparationsattente/listesreparationsattente.component';
 import { ListeVoitureAreparerComponent } from './liste-voiture-areparer/liste-voiture-areparer.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { VehiculereparationpayerComponent } from './vehiculereparationpayer/vehiculereparationpayer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     ListesVehiculeDeposerComponent,
     ListesreparationsparvehiculeComponent,
     ListesreparationsattenteComponent,
-    ListeVoitureAreparerComponent
+    ListeVoitureAreparerComponent,
+    VehiculereparationpayerComponent
   ],
   imports: [
     BrowserModule,

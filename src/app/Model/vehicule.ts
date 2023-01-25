@@ -11,4 +11,5 @@ export class Vehicule {
     totalPrixReparation!: string;
     status!: string;
     utilisateurId!: any;
+    utilisateur!: Utilisateur;
 }
