@@ -27,6 +27,7 @@
             <ul>
             <li><a class="nav-link scrollto active" [routerLink]="['/acceuilfinancier']">Home</a></li>
             <li><a class="nav-link scrollto">Payement</a></li>
+            <li><a class="nav-link scrollto"[routerLink]="['/VehiculeReparationPayer']">Vehicule valider</a></li>
           </ul>
           </div>
           <div *ngIf="getroleUser()=='ROLE_RESPONSABLE_ATELIER'">
