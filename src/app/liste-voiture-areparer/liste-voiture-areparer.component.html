@@ -1,0 +1,37 @@
+<app-header></app-header>
+    <section id="pricing" class="pricing">
+        <div class="container">
+          <div class="section-title" data-aos="zoom-out">
+            <h2>Responsable atelier {{ this.nameAtelier}}</h2>
+            <p>Listes des Vehicules à reparer</p>
+          </div>
+          <div cdkDropListGroup>
+            <div class="example-container">
+              <h2>A Reparer</h2>
+          
+              <div
+                cdkDropList
+                [cdkDropListData]="ListesReparations"
+                class="example-list"
+                cdkDropListSortingDisabled
+                (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of ListesReparations" cdkDrag>{{item.typeReparation.nomTypeReparation}}</div>
+              </div>
+            </div>
+          
+            <div class="example-container">
+              <h2>En cours</h2>
+          
+              <div
+                cdkDropList
+                [cdkDropListData]="ListesReparations"
+                class="example-list"
+                (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of ListesReparations" cdkDrag>{{item.typeReparation.nomTypeReparation}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>      
+<app-footer></app-footer>
+

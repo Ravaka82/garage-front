@@ -2,7 +2,7 @@
     <section id="pricing" class="pricing">
         <div class="container">
           <div class="section-title" data-aos="zoom-out">
-            <h2>Responsable Financier {{ this.nameAtelier}}</h2>
+            <h2>Responsable atelier {{ this.nameAtelier}}</h2>
             <p>Listes des Vehicules à reparer</p>
           </div>
           <div class="col-lg-12">
@@ -16,11 +16,10 @@
                   <h5 class="card-title" style="color:chocolate;font-weight:bold">{{vehiculeValider.vehicule.nom}}</h5>
                   <p class="card-text" style="font-size:medium;font-weight: bold;">{{vehiculeValider.vehicule.immatriculation}}</p>
                   <p class="card-text" style="font-size:medium;font-weight: bold;color:goldenrod">TOTAL PAYER : {{vehiculeValider.vehicule.totalPrixReparation}} €</p>
-                  <button class="btn btn-sucess" routerLink="/ReparationsPayer/{{vehiculeValider.vehicule._id}}">details réparations</button>
+                  <button class="btn btn-sucess" routerLink="/listeVoitureAreparer/{{vehiculeValider._id}}">details réparations</button>
                 </div>
               </div>
             </div>
-            
         </div><br>
         <div fxLayoutAlign="center center" class="pagination">
           <pagination-controls (pageChange)="pages = $event"></pagination-controls>

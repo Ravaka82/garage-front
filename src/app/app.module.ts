@@ -26,7 +26,8 @@ import { ListesVehiculeDeposerComponent } from './listes-vehicule-deposer/listes
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ListesreparationsparvehiculeComponent } from './listesreparationsparvehicule/listesreparationsparvehicule.component';
 import { ListesreparationsattenteComponent } from './listesreparationsattente/listesreparationsattente.component';
-
+import { ListeVoitureAreparerComponent } from './liste-voiture-areparer/liste-voiture-areparer.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { ListesreparationsattenteComponent } from './listesreparationsattente/li
     AcceuilatelierComponent,
     ListesVehiculeDeposerComponent,
     ListesreparationsparvehiculeComponent,
-    ListesreparationsattenteComponent
+    ListesreparationsattenteComponent,
+    ListeVoitureAreparerComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ import { ListesreparationsattenteComponent } from './listesreparationsattente/li
     MatIconModule,
     MatSnackBarModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

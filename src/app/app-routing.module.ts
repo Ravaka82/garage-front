@@ -1,5 +1,5 @@
 import { AcceuilComponent } from './acceuil/acceuil.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { TemplateComponent } from './template/template.component';
@@ -9,6 +9,7 @@ import { AcceuilatelierComponent } from './acceuilatelier/acceuilatelier.compone
 import { ListesVehiculeDeposerComponent } from './listes-vehicule-deposer/listes-vehicule-deposer.component';
 import { ListesreparationsparvehiculeComponent } from './listesreparationsparvehicule/listesreparationsparvehicule.component';
 import { ListesreparationsattenteComponent } from './listesreparationsattente/listesreparationsattente.component';
+import { ListeVoitureAreparerComponent } from './liste-voiture-areparer/liste-voiture-areparer.component';
 
 const routes: Routes = [
   {path: 'login', component: RegisterUserComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'acceuilfinancier', component: AcceuilfinancierComponent},
   {path: 'acceuilatelier', component: AcceuilatelierComponent},
   {path: 'listeReparationParVehicule/:id', component: ListesreparationsparvehiculeComponent},
-  {path: 'ReparationsPayer/:id', component: ListesreparationsattenteComponent}
+  {path: 'ReparationsPayer/:id', component: ListesreparationsattenteComponent},
+  {path: 'listeVoitureAreparer/:vehicule', component: ListeVoitureAreparerComponent}
 
 ];
 
