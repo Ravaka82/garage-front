@@ -11,6 +11,7 @@ import { ListesreparationsparvehiculeComponent } from './listesreparationsparveh
 import { ListesreparationsattenteComponent } from './listesreparationsattente/listesreparationsattente.component';
 import { ListeVoitureAreparerComponent } from './liste-voiture-areparer/liste-voiture-areparer.component';
 import { VehiculereparationpayerComponent } from './vehiculereparationpayer/vehiculereparationpayer.component';
+import { PdfDetailsComponent } from './pdf-details/pdf-details.component';
 
 const routes: Routes = [
   {path: 'login', component: RegisterUserComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'listeReparationParVehicule/:id', component: ListesreparationsparvehiculeComponent},
   {path: 'ReparationsPayer/:id', component: ListesreparationsattenteComponent},
   {path: 'listeVoitureAreparer/:vehicule', component: ListeVoitureAreparerComponent},
-  {path: 'VehiculeReparationPayer', component: VehiculereparationpayerComponent}
+  {path: 'VehiculeReparationPayer', component: VehiculereparationpayerComponent},
+  {path: 'pdfDetails/:id', component: PdfDetailsComponent}
 
 ];
 

@@ -3,14 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import {MatCardModule} from '@angular/material/card';
-import{MatTabsModule} from '@angular/material/tabs';
-import{MatFormFieldModule}from '@angular/material/form-field';
-import{ MatInputModule}from '@angular/material/input';
-import{MatButtonModule}from '@angular/material/button';
-import{MatCheckboxModule}from '@angular/material/checkbox';
-import{MatIconModule}from '@angular/material/icon';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatCardModule} from '@angular/material/card';
+import { MatTabsModule} from '@angular/material/tabs';
+import { MatFormFieldModule}from '@angular/material/form-field';
+import { MatInputModule}from '@angular/material/input';
+import { MatButtonModule}from '@angular/material/button';
+import { MatCheckboxModule}from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,8 +27,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ListesreparationsparvehiculeComponent } from './listesreparationsparvehicule/listesreparationsparvehicule.component';
 import { ListesreparationsattenteComponent } from './listesreparationsattente/listesreparationsattente.component';
 import { ListeVoitureAreparerComponent } from './liste-voiture-areparer/liste-voiture-areparer.component';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule} from '@angular/cdk/drag-drop';
 import { VehiculereparationpayerComponent } from './vehiculereparationpayer/vehiculereparationpayer.component';
+import { PdfDetailsComponent } from './pdf-details/pdf-details.component';
+import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
+import { NgxPrintModule} from "ngx-print";
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +47,8 @@ import { VehiculereparationpayerComponent } from './vehiculereparationpayer/vehi
     ListesreparationsparvehiculeComponent,
     ListesreparationsattenteComponent,
     ListeVoitureAreparerComponent,
-    VehiculereparationpayerComponent
+    VehiculereparationpayerComponent,
+    PdfDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,9 @@ import { VehiculereparationpayerComponent } from './vehiculereparationpayer/vehi
     MatSnackBarModule,
     HttpClientModule,
     NgxPaginationModule,
-    DragDropModule
+    DragDropModule,
+    NgxPrintModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

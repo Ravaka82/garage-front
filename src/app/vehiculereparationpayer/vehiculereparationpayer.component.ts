@@ -2,8 +2,9 @@ import { Component,OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { Utilisateur } from '../Model/Utilisateur';
 import { Vehicule } from '../Model/vehicule';
+import { PdfDetailsComponent } from '../pdf-details/pdf-details.component';
 import { VehiculeService } from '../Service/vehicule.service';
-
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 @Component({
   selector: 'app-vehiculereparationpayer',
   templateUrl: './vehiculereparationpayer.component.html',
@@ -15,7 +16,7 @@ export class VehiculereparationpayerComponent implements OnInit {
   pages: number = 1;
   totallength: any;
 
-  constructor(private servicevehicule:VehiculeService ,private router: Router) { }
+  constructor( private dialog: MatDialog,private servicevehicule:VehiculeService ,private router: Router) { }
 
   ngOnInit(): void {
     this.getListesVehiculesValide();

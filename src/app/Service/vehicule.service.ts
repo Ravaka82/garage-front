@@ -7,7 +7,7 @@ import { Vehicule } from '../Model/vehicule';
 })
 export class VehiculeService {
   constructor(private http:HttpClient){}
-  Url1= 'http://localhost:8081/api/vehicule/findVehiculeReparationPayer';
+  Url1= 'http://localhost:8080/api/vehicule/findVehiculeReparationPayer';
 
   getVehiculeReparationPayer()
   {

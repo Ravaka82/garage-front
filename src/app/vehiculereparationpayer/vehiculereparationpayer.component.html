@@ -16,8 +16,7 @@
               <p class="card-text" style="font-size:medium;font-weight: bold;">Nom Client : {{v.utilisateur.nom}} </p>
               <p class="card-text" style="font-size:medium;font-weight: bold;">email : {{v.utilisateur.email}} </p>
               <p class="card-text" style="font-size:medium;font-weight: bold;color:goldenrod">TOTAL PAYER : {{v.totalPrixReparation}} €</p>
-              <button class="btn btn-sucess" routerLink="" type="submit">export PDF
-             </button>
+              <button class="btn btn-sucess" routerLink="/pdfDetails/{{v._id}}"  type="submit">voir PDF </button>
             </div>
           </div>
         </div>
