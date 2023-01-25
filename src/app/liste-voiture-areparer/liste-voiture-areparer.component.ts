@@ -14,6 +14,9 @@ export class ListeVoitureAreparerComponent {
   nameAtelier: any;
   ListesReparations!: Reparation[];
   constructor(private serviceReparation: ReparationService,private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){}
+  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+
+  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
 
   ngOnInit(): void {
   this.nameAtelier = localStorage.getItem('idUser');
@@ -40,5 +43,10 @@ export class ListeVoitureAreparerComponent {
         event.currentIndex,
       );
     }
+  }
+  getlien(val: string){
+    var t=val.split("\\");
+    console.log(t[2]);
+    return t[2];
   }
 }
