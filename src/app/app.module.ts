@@ -32,6 +32,8 @@ import { VehiculereparationpayerComponent } from './vehiculereparationpayer/vehi
 import { PdfDetailsComponent } from './pdf-details/pdf-details.component';
 import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import { NgxPrintModule} from "ngx-print";
+import { EnvoyeMailComponent } from './envoye-mail/envoye-mail.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,8 @@ import { NgxPrintModule} from "ngx-print";
     ListesreparationsattenteComponent,
     ListeVoitureAreparerComponent,
     VehiculereparationpayerComponent,
-    PdfDetailsComponent
+    PdfDetailsComponent,
+    EnvoyeMailComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,8 @@ import { NgxPrintModule} from "ngx-print";
     NgxPaginationModule,
     DragDropModule,
     NgxPrintModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
