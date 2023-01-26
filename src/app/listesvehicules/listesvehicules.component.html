@@ -5,7 +5,7 @@
   
           <div class="section-title" data-aos="zoom-out">
             <h2>Client</h2>
-            <p>Listes des Vehicules</p>
+            <p>Listes des Vehicules validés</p>
           </div>
             <div class="col-lg-11 mt-5 mt-lg-0"  style="margin-left: 150px">
                 <table class="table table-hover">
@@ -16,17 +16,18 @@
                         <th scope="col">Type</th>
                         <th scope="col">Immatriculation</th>
                         <th scope="col">Action</th>
+                        <th scope="col">Facture</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr *ngFor=" let vehicules of listeVehicule | paginate: { itemsPerPage: 3, currentPage: pages,totalItems : totallength} ">
                         
                         <th scope="row"><img src="../assets/img/{{getlien(vehicules.image)}}" class="card-img-top" style="width:200px;height:200px" alt="..."></th>
-                        <td>{{vehicules.nom}}</td>
+                        <td style="color:#ef6603;font-weight:bold">{{vehicules.nom}}</td>
                         <td>{{vehicules.type}}</td>
                         <td>{{vehicules.immatriculation}}</td>
                         <td><a href="#" class="btn-buy">voir avancements réparations</a></td>
-                       
+                        <td><button class="btn btn-sucess" routerLink=""  type="submit">voir facture</button></td>
                       </tr>
                     </tbody>
                   </table>
