@@ -4,7 +4,7 @@
     <div class="col-lg-9 col-md-8 d-flex align-items-stretch" >
         <div class="card" style="overflow: hidden;">
         <h2 class="mess">Nouveau Message</h2><br>
-            <form class="example-form"  [formGroup]="nomForm" >
+            <form class="example-form"  [formGroup]="nomForm" (ngSubmit)="onSubmit()">
                 <mat-form-field class="example-full-width" appearance="fill"  class="fournisseur">
                     <mat-label><img src='../assets/images/fournisseur.png' width="20"> Destinataire</mat-label>
                     <input matInput placeholder="Exemple@gmail.com" formControlName="to">
@@ -21,7 +21,7 @@
                     <br>
                     <div class="fileUploadInput" >
                     <h5  class="fournisseur" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"> ✨ Upload Fichier</h5>
-                    <input type="file"  formControlName="file"  class="fournisseur"/>
+                    <input type="file"  formControlName="file"  (change)="onFileChange($event)" class="fournisseur"/>
                     <button  class="bouton"><img src='../assets/images/i.png' width="36" ></button></div>
                 <br><br>
                 <button  mat-raised-button type="submit" class ="but" color="danger">
