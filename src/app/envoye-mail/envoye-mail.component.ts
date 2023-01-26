@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { PaiementService } from '../Service/paiement.service';
 @Component({
@@ -14,7 +15,7 @@ export class EnvoyeMailComponent implements OnInit {
   submitting: boolean = false;
   fileSource: any;
   name!: '';
-  constructor(private paiementservice: PaiementService) {}
+  constructor(private paiementservice: PaiementService,private _snackBar: MatSnackBar) {}
   ngOnInit(): void {
   this.initForm();
   }
@@ -52,6 +53,13 @@ export class EnvoyeMailComponent implements OnInit {
         (response) => {
         // do something with the response
         console.log(response);
+        this._snackBar.open("E-mail envoyé avec succès ✔️✔️ ", 'Close',{
+          duration:5000,
+          // css matsnack bar dia any amn style.css ny css anreo
+          verticalPosition: 'top',
+          horizontalPosition: 'right',
+          panelClass: ['success-alert']
+        });
         },
         (error) => {
         // handle the error
