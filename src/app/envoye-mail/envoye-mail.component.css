@@ -93,7 +93,8 @@
     margin-top: 3rem;
     transition: transform 0.5s;
     border-color: black 2px;
-    border-radius:8px
+    border-radius:8px;
+    background-color:#ffd6c22b;
   }
   .fournisseur{
     margin-left: 35px;
@@ -102,7 +103,6 @@
   .mess{
     margin-left: 35px;
     margin-top:20px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   .bouton{
     margin-left: 25px;
