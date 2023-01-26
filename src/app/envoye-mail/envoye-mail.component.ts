@@ -48,6 +48,14 @@ export class EnvoyeMailComponent implements OnInit {
       console.log("file"+file);
       console.log("f"+f);
       console.log("filename"+filename);
-      this.paiementservice.sendMail(to,subject,text,file,filename);
+      this.paiementservice.sendMail(to,subject,text,file,filename).subscribe(
+        (response) => {
+        // do something with the response
+        console.log(response);
+        },
+        (error) => {
+        // handle the error
+        }
+        );
     }
 }

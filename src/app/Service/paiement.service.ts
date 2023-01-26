@@ -34,6 +34,7 @@ export class PaiementService {
     formData.append('text', text);
     formData.append('file', file);
     formData.append('filename', filename);
+    console.log(formData.getAll)
     return this.http.post<Paiement>(this.Url5, formData);
 }
 }
