@@ -30,20 +30,11 @@ export class EnvoyeMailComponent implements OnInit {
         const file = event.target.files[0];
         this.name = event.target.files[0].name;
         this.nomForm.patchValue({
-         file,
-        });
+          file: event.target.files[0]
+        })
+       this.nomForm.get('<name>')?.setValue(file, {emitModelToViewChange: false})
       }
     }
-    // onFileChange(event:any) {
-    //   if (event.target.files.length > 0) {
-    //     const file = event.target.files[0];
-    //     this.name = event.target.files[0].name;
-    //     this.nomForm.patchValue({
-    //       myFile: event.target.files[0]
-    //     })
-    //    console.log("file"+this.nomForm.get('<name>')?.setValue(file, {emitModelToViewChange: false}));
-    //   }
-    // }
     onSubmit(){
       const to = this.nomForm.get("to")?.value;
       const subject = this.nomForm.get("subject")?.value;
