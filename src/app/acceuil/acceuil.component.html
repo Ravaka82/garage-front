@@ -46,9 +46,8 @@
               <form (ngSubmit)="getListeDepotVoiture()">
                 <div class="container mt-3">
                   <select class="form-select" [(ngModel)]="Vehicule._id"  name="vehicule" class="select" style="width:500px;height:50px;">
-                      <option *ngFor="let vehicule   of  Vehicules"  value="{{vehicule._id}}" >{{vehicule.nom}} 
-                         <input type="hidden" [(ngModel)]=" vehicule._id" name="vehicule" value="{{vehicule._id}}">
-                      </option>
+                      <option *ngFor="let vehicule of Vehicules"  value="{{vehicule._id}}" >{{vehicule.nom}}</option>
+                         <!-- <input type="hidden" [(ngModel)]="vehicule._id" name="vehicule" value="{{vehicule._id}}"> -->
                   </select>
                 </div><br>
                 <h5> 2) Cliquez sur l'icone sous forme reparation voiture  <img src="../assets/images/repare.png" width="30"> pour choisir les reparations que vous souhaitez faire . </h5><br>
