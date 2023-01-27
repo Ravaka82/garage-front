@@ -4,6 +4,7 @@ import { Reparation } from '../Model/Reparation';
 import { PaiementService } from '../Service/paiement.service';
 import { ReparationService } from '../Service/reparation.service';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-liste-voiture-areparer',
@@ -13,7 +14,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 export class ListeVoitureAreparerComponent {
   nameAtelier: any;
   ListesReparations: Reparation[] = [];
-  constructor(private serviceReparation: ReparationService,private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){
+  constructor(private _snackBar: MatSnackBar,private serviceReparation: ReparationService,private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){
     this.todo = [];
     this.done = [];
   }
@@ -40,7 +41,24 @@ export class ListeVoitureAreparerComponent {
     } else {
       if (event.container.id === 'cdkDropList-1') {
         this.todo.push(event.previousContainer.data[event.previousIndex]);
-      }
+          for(let item of this.todo){
+            console.log("id"+item._id)
+            this.serviceReparation.updateOneReparationEncours(item._id).subscribe(
+              (response) => {
+              console.log(response);
+              this._snackBar.open("Reparation en-cours ✔️✔️ ", 'Close',{
+                duration:5000,
+                verticalPosition: 'top',
+                horizontalPosition: 'right',
+                panelClass: ['success-alert']
+              });
+              },
+              (error) => {
+              // handle the error
+              }
+              );
+          }
+        }
       if (event.container.id === 'cdkDropList-2') {
         this.done.push(event.previousContainer.data[event.previousIndex]);
       }

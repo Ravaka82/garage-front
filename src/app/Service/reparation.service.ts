@@ -8,10 +8,11 @@ import { Vehicule } from '../Model/vehicule';
 })
 export class ReparationService {
   constructor(private http:HttpClient) { }
-  Url1='http://localhost:8081/api/reparation/createReparation';
-  Url2='http://localhost:8081/api/reparation/findDepotReparationParVoiture';
-  url3='http://localhost:8081/api/reparation/listeVehiculeDepot';
-  url4='http://localhost:8081/api/reparation/getReparationParVehicule';
+  Url1='http://localhost:8080/api/reparation/createReparation';
+  Url2='http://localhost:8080/api/reparation/findDepotReparationParVoiture';
+  url3='http://localhost:8080/api/reparation/listeVehiculeDepot';
+  url4='http://localhost:8080/api/reparation/getReparationParVehicule';
+  url5='http://localhost:8080/api/updateOneReparationEncours';
 
   creationReparation(reparation: Reparation)
   {
@@ -32,6 +33,10 @@ export class ReparationService {
   } 
   getListesReparationsByVehicule(vehicule: any){
     const val =this.http.get<Reparation[]>(`${this.url4}/${vehicule}`);
+    return val;
+  }
+  updateOneReparationEncours(_id:any){
+    const val =this.http.post<Reparation>(`${this.url5}/${_id}`,null);
     return val;
   }
 }
