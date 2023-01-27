@@ -7,7 +7,9 @@ export class Vehicule {
     image!: string;
     immatriculation!: string;
     dateDebut!: Date;
-    totalAvancement!: string;
+    DateHeureDebut!: Date;
+    DateHeureFin!: Date;
+    totalTempsReparation!: Date;
     totalPrixReparation!: string;
     status!: string;
     utilisateurId!: any;
