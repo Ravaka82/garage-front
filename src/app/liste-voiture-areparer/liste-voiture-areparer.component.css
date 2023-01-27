@@ -4,13 +4,13 @@
     margin: 0 25px 25px 0;
     display: inline-block;
     vertical-align: top;
+    background-color:#ef6603;
   }
   
   .example-list {
     border: solid 1px #ccc;
     min-height: 60px;
-    background: white;
-    border-radius: 4px;
+    background-color:#826c6e;
     overflow: hidden;
     display: block;
   }
@@ -27,6 +27,7 @@
     cursor: move;
     background: white;
     font-size: 14px;
+    background-color:#826c6e;
   }
   
   .cdk-drag-preview {
@@ -56,9 +57,30 @@
     border-radius: 2em;
     text-align: center;
     box-shadow: 0 10px 10px rgba(0,0,0,.2);
-    margin-left: 2rem;
+    margin-left: 3rem;
     margin-top: 3rem;
     transition: transform 0.5s;
+    width:250px;
+    transition: transform 0.5s;
+}
+.card:hover{
+   
+    transform: scale(1.1);
+    /*transform: rotatey(180deg);*/
+}
+@keyframes hover{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.1);
+    }
+    /* 0%{
+        transform: rotatey(0deg);
+    }
+    100%{
+        transform: rotatey(180deg);
+    } */
 }
 .pricing .btn-warning {
     background: #ef6603;

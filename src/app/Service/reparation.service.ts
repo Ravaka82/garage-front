@@ -15,6 +15,8 @@ export class ReparationService {
   url5='http://localhost:8080/api/reparation/updateOneReparationEncours';
   url6='http://localhost:8080/api/reparation/getReparationAFaire';
   url7='http://localhost:8080/api/reparation/getReparationEnCours';
+  url8='http://localhost:8080/api/reparation/getReparationTerminee';
+  url9='http://localhost:8080/api/reparation/updateOneReparationTerminee';
 
   creationReparation(reparation: Reparation)
   {
@@ -41,12 +43,20 @@ export class ReparationService {
     const val =this.http.post<Reparation>(`${this.url5}/${_id}`,null);
     return val;
   }
+  updateOneReparationTerminee(_id:any){
+    const val =this.http.post<Reparation>(`${this.url9}/${_id}`,null);
+    return val;
+  }
   getReparationAFaire(vehicule: any){
     const val =this.http.get<Reparation[]>(`${this.url6}/${vehicule}`);
     return val;
   }
   getReparationEnCours(vehicule: any){
     const val =this.http.get<Reparation[]>(`${this.url7}/${vehicule}`);
+    return val;
+  }
+  getReparationTerminee(vehicule: any){
+    const val =this.http.get<Reparation[]>(`${this.url8}/${vehicule}`);
     return val;
   }
 }
