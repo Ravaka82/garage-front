@@ -35,6 +35,7 @@ import { NgxPrintModule} from "ngx-print";
 import { EnvoyeMailComponent } from './envoye-mail/envoye-mail.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DepotvoitureComponent } from './depotvoiture/depotvoiture.component';
+import { AvancemenreparationsComponent } from './avancemenreparations/avancemenreparations.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { DepotvoitureComponent } from './depotvoiture/depotvoiture.component';
     VehiculereparationpayerComponent,
     PdfDetailsComponent,
     EnvoyeMailComponent,
-    DepotvoitureComponent
+    DepotvoitureComponent,
+    AvancemenreparationsComponent
   ],
   imports: [
     BrowserModule,
