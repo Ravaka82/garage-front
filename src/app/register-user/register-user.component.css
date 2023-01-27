@@ -17,9 +17,9 @@ mat-card {
   width: 25%;
   margin: 10% auto;
   border-radius: 8px;
-  background-color:#b4a68d;
+  background-color:gray;
   box-shadow: 20px;
-   opacity: 90%;;
+   opacity: 85%;;
 }
 mat-form-field, mat-checkbox {
   width: 80%;
