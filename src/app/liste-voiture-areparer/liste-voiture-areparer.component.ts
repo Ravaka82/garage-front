@@ -14,6 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ListeVoitureAreparerComponent {
   nameAtelier: any;
   ListesReparations: Reparation[] = [];
+  ListesReparationEncours: Reparation[]=[];
   constructor(private _snackBar: MatSnackBar,private serviceReparation: ReparationService,private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){
     this.todo = [];
     this.done = [];
@@ -23,12 +24,12 @@ export class ListeVoitureAreparerComponent {
 
   ngOnInit(): void {
   this.nameAtelier = localStorage.getItem('idUser');
-  this.getListesReparationsParVehicule();
-
+  this.getListesReparationsAFaire();
+  this. getReparationEnCours();
 }
-  getListesReparationsParVehicule(){
+  getListesReparationsAFaire(){
     console.log("vehicule"+this.route.snapshot.paramMap.get('vehicule'))
-    this.serviceReparation.getListesReparationsByVehicule(this.route.snapshot.paramMap.get('vehicule'))
+    this.serviceReparation.getReparationAFaire(this.route.snapshot.paramMap.get('vehicule'))
     .subscribe(
       data => {
         this.ListesReparations=data;
@@ -65,9 +66,13 @@ export class ListeVoitureAreparerComponent {
       event.previousContainer.data.splice(event.previousIndex,1);
     }
   }
-  
-  
-
+  getReparationEnCours(){
+    this.serviceReparation.getReparationEnCours(this.route.snapshot.paramMap.get('vehicule'))
+    .subscribe(
+      data => {
+        this.ListesReparationEncours=data;
+      }) 
+  }
 
   getlien(val: string){
     var t=val.split("\\");

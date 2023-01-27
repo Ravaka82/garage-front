@@ -12,7 +12,9 @@ export class ReparationService {
   Url2='http://localhost:8080/api/reparation/findDepotReparationParVoiture';
   url3='http://localhost:8080/api/reparation/listeVehiculeDepot';
   url4='http://localhost:8080/api/reparation/getReparationParVehicule';
-  url5='http://localhost:8080/api/updateOneReparationEncours';
+  url5='http://localhost:8080/api/reparation/updateOneReparationEncours';
+  url6='http://localhost:8080/api/reparation/getReparationAFaire';
+  url7='http://localhost:8080/api/reparation/getReparationEnCours';
 
   creationReparation(reparation: Reparation)
   {
@@ -37,6 +39,14 @@ export class ReparationService {
   }
   updateOneReparationEncours(_id:any){
     const val =this.http.post<Reparation>(`${this.url5}/${_id}`,null);
+    return val;
+  }
+  getReparationAFaire(vehicule: any){
+    const val =this.http.get<Reparation[]>(`${this.url6}/${vehicule}`);
+    return val;
+  }
+  getReparationEnCours(vehicule: any){
+    const val =this.http.get<Reparation[]>(`${this.url7}/${vehicule}`);
     return val;
   }
 }

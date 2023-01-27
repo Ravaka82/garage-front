@@ -24,8 +24,8 @@
             </div>
             <div class="example-container">
               <h2> En cours</h2>
-              <div cdkDropList id="cdkDropList-1" [cdkDropListData]="todo" class="example-list" cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
-                <div class="example-box" *ngFor="let item of todo" cdkDrag>
+              <div cdkDropList id="cdkDropList-1" [cdkDropListData]="ListesReparationEncours" class="example-list" cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of ListesReparationEncours" cdkDrag>
                   <div class="card" style="overflow: hidden;">
                     <img src="../assets/images/{{item.typeReparation.image}}" height="200px"  class="card-img-top" alt="...">
                     <div class="card-body">
