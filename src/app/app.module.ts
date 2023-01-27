@@ -34,6 +34,7 @@ import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import { NgxPrintModule} from "ngx-print";
 import { EnvoyeMailComponent } from './envoye-mail/envoye-mail.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DepotvoitureComponent } from './depotvoiture/depotvoiture.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ListeVoitureAreparerComponent,
     VehiculereparationpayerComponent,
     PdfDetailsComponent,
-    EnvoyeMailComponent
+    EnvoyeMailComponent,
+    DepotvoitureComponent
   ],
   imports: [
     BrowserModule,

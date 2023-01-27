@@ -13,28 +13,28 @@
           
           <div *ngIf="getidUser()==null">
             <ul>
-            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto active" href="#hero">Accueil</a></li>
             <li><a class="nav-link scrollto" [routerLink]="['/login']">login / inscription</a></li>
           </ul>
           </div>
           <div *ngIf="getroleUser()=='ROLE_CLIENT'">
             <ul>
-            <li><a class="nav-link scrollto active" [routerLink]="['/acceuil']">Home</a></li>
-	    <li><a class="nav-link scrollto" [routerLink]="['/acceuil']">Dépot voiture</a></li>
+            <li><a class="nav-link scrollto active" [routerLink]="['/acceuil']">Accueil</a></li>
+	     <li><a class="nav-link scrollto" [routerLink]="['/DepotVoiture']">Dépot voiture</a></li>
             <li><a class="nav-link scrollto" [routerLink]="['/listesVehicules']">Véhicules validés</a></li>
             <li><a class="nav-link scrollto" [routerLink]="['/listesVehiculesDeposer']">Vehicules déposées</a></li>
           </ul>
           </div>
           <div *ngIf="getroleUser()=='ROLE_RESPONSABLE_FINANCIER'">
             <ul>
-            <li><a class="nav-link scrollto active" [routerLink]="['/acceuilfinancier']">Home</a></li>
+            <li><a class="nav-link scrollto active" [routerLink]="['/acceuilfinancier']">Accueil</a></li>
             <li><a class="nav-link scrollto" [routerLink]="['/VehiculeReparationPayer']">Vehicules valider</a></li>
             <li><a class="nav-link scrollto" [routerLink]="['/envoyeMail']">Envoi e-mail</a></li>
           </ul>
           </div>
           <div *ngIf="getroleUser()=='ROLE_RESPONSABLE_ATELIER'">
             <ul>
-            <li><a class="nav-link scrollto active" [routerLink]="['/acceuilatelier']">Home</a></li>
+            <li><a class="nav-link scrollto active" [routerLink]="['/acceuilatelier']">Accueil</a></li>
             <li><a class="nav-link scrollto">Reception</a></li>
           </ul>
           </div>

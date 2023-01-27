@@ -13,6 +13,7 @@ import { ListeVoitureAreparerComponent } from './liste-voiture-areparer/liste-vo
 import { VehiculereparationpayerComponent } from './vehiculereparationpayer/vehiculereparationpayer.component';
 import { PdfDetailsComponent } from './pdf-details/pdf-details.component';
 import { EnvoyeMailComponent } from './envoye-mail/envoye-mail.component';
+import { DepotvoitureComponent } from './depotvoiture/depotvoiture.component';
 
 const routes: Routes = [
   {path: 'login', component: RegisterUserComponent},
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path: 'listeVoitureAreparer/:vehicule', component: ListeVoitureAreparerComponent},
   {path: 'VehiculeReparationPayer', component: VehiculereparationpayerComponent},
   {path: 'pdfDetails/:id', component: PdfDetailsComponent},
-  {path: 'envoyeMail',component:EnvoyeMailComponent}
+  {path: 'envoyeMail',component:EnvoyeMailComponent},
+  {path: 'DepotVoiture',component:DepotvoitureComponent}
 
 ];
 
