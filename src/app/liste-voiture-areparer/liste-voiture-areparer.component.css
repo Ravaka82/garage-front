@@ -56,9 +56,10 @@
     border-radius: 2em;
     text-align: center;
     box-shadow: 0 10px 10px rgba(0,0,0,.2);
-    margin-left: 2rem;
+    margin-left: 3rem;
     margin-top: 3rem;
     transition: transform 0.5s;
+    width:250px;
 }
 .pricing .btn-warning {
     background: #ef6603;

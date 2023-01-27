@@ -15,6 +15,7 @@ export class ListeVoitureAreparerComponent {
   nameAtelier: any;
   ListesReparations: Reparation[] = [];
   ListesReparationEncours: Reparation[]=[];
+  ListesReparationTerminee: Reparation[]=[];
   constructor(private _snackBar: MatSnackBar,private serviceReparation: ReparationService,private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){
     this.todo = [];
     this.done = [];
@@ -25,7 +26,8 @@ export class ListeVoitureAreparerComponent {
   ngOnInit(): void {
   this.nameAtelier = localStorage.getItem('idUser');
   this.getListesReparationsAFaire();
-  this. getReparationEnCours();
+  this.getReparationEnCours();
+  this.getReparationTerminee();
 }
   getListesReparationsAFaire(){
     console.log("vehicule"+this.route.snapshot.paramMap.get('vehicule'))
@@ -36,7 +38,7 @@ export class ListeVoitureAreparerComponent {
         console.log("data"+ this.ListesReparations);
       }) 
   }
-  drop(event: CdkDragDrop<Reparation[]>) {
+  drop(event: CdkDragDrop<Reparation[]>){
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -62,6 +64,23 @@ export class ListeVoitureAreparerComponent {
         }
       if (event.container.id === 'cdkDropList-2') {
         this.done.push(event.previousContainer.data[event.previousIndex]);
+        for(let item of this.done){
+          console.log("id"+item._id)
+          this.serviceReparation.updateOneReparationTerminee(item._id).subscribe(
+            (response) => {
+            console.log(response);
+            this._snackBar.open("Reparation terminée ✔️✔️ ", 'Close',{
+              duration:5000,
+              verticalPosition: 'top',
+              horizontalPosition: 'right',
+              panelClass: ['success-alert']
+            });
+            },
+            (error) => {
+            // handle the error
+            }
+            );
+        }
       }
       event.previousContainer.data.splice(event.previousIndex,1);
     }
@@ -71,6 +90,13 @@ export class ListeVoitureAreparerComponent {
     .subscribe(
       data => {
         this.ListesReparationEncours=data;
+      }) 
+  }
+  getReparationTerminee(){
+    this.serviceReparation.getReparationTerminee(this.route.snapshot.paramMap.get('vehicule'))
+    .subscribe(
+      data => {
+        this.ListesReparationTerminee=data;
       }) 
   }
 
