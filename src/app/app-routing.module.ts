@@ -15,6 +15,7 @@ import { PdfDetailsComponent } from './pdf-details/pdf-details.component';
 import { EnvoyeMailComponent } from './envoye-mail/envoye-mail.component';
 import { DepotvoitureComponent } from './depotvoiture/depotvoiture.component';
 import { AvancemenreparationsComponent } from './avancemenreparations/avancemenreparations.component';
+import { FactureclientComponent } from './factureclient/factureclient.component';
 
 const routes: Routes = [
   {path: 'login', component: RegisterUserComponent},
@@ -31,7 +32,8 @@ const routes: Routes = [
   {path: 'pdfDetails/:id', component: PdfDetailsComponent},
   {path: 'envoyeMail',component:EnvoyeMailComponent},
   {path: 'DepotVoiture',component:DepotvoitureComponent},
-  {path: 'Avancementreparation/:vehicule',component:AvancemenreparationsComponent}
+  {path: 'Avancementreparation/:vehicule',component:AvancemenreparationsComponent},
+  {path: 'Factureclient/:id',component:FactureclientComponent}
 ];
 
 @NgModule({

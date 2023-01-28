@@ -36,6 +36,7 @@ import { EnvoyeMailComponent } from './envoye-mail/envoye-mail.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DepotvoitureComponent } from './depotvoiture/depotvoiture.component';
 import { AvancemenreparationsComponent } from './avancemenreparations/avancemenreparations.component';
+import { FactureclientComponent } from './factureclient/factureclient.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { AvancemenreparationsComponent } from './avancemenreparations/avancemenr
     PdfDetailsComponent,
     EnvoyeMailComponent,
     DepotvoitureComponent,
-    AvancemenreparationsComponent
+    AvancemenreparationsComponent,
+    FactureclientComponent
   ],
   imports: [
     BrowserModule,
