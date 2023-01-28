@@ -17,12 +17,6 @@ export class ListeVoitureAreparerComponent {
   ListesReparationEncours: Reparation[]=[];
   ListesReparationTerminee: Reparation[]=[];
   ReparationTerminee:Reparation[] =[];
-  pages1: number = 1;
-  totallength1: any;
-  pages2: number = 1;
-  totallength2: any;
-  pages3: number = 1;
-  totallength3: any;
   constructor(private _snackBar: MatSnackBar,private serviceReparation: ReparationService,private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){
     this.todo = [];
     this.done = [];
@@ -36,16 +30,12 @@ export class ListeVoitureAreparerComponent {
   this.getReparationEnCours();
   this.getReparationTerminee();
 }
-pageChange(newPage: number){
-  this.router.navigate([''],{queryParams: {page: newPage}});
-}
   getListesReparationsAFaire(){
     console.log("vehicule"+this.route.snapshot.paramMap.get('vehicule'))
     this.serviceReparation.getReparationAFaire(this.route.snapshot.paramMap.get('vehicule'))
     .subscribe(
       data => {
         this.ListesReparations=data;
-        this.totallength1= this.ListesReparations.length;
         console.log("data"+ this.ListesReparations);
       }) 
   }
@@ -72,7 +62,6 @@ pageChange(newPage: number){
               }
               );
           }
-          this.totallength2= this.ListesReparationEncours.length;
         }
       if (event.container.id === 'cdkDropList-2') {
         this.done.push(event.previousContainer.data[event.previousIndex]);
@@ -81,7 +70,7 @@ pageChange(newPage: number){
           this.serviceReparation.updateOneReparationTerminee(item._id).subscribe(
             (response) => {
             console.log(response);
-            this._snackBar.open("Reparation terminée ✔️✔️ ", 'Close',{
+            this._snackBar.open(" un typeReparation terminée ✔️✔️ ", 'Close',{
               duration:5000,
               verticalPosition: 'top',
               horizontalPosition: 'right',
@@ -93,7 +82,6 @@ pageChange(newPage: number){
             }
             );
         }
-        this.totallength3= this.ListesReparationTerminee.length;
       }
       event.previousContainer.data.splice(event.previousIndex,1);
     }
@@ -103,7 +91,6 @@ pageChange(newPage: number){
     .subscribe(
       data => {
         this.ListesReparationEncours=data;
-       
       }) 
   }
   getReparationTerminee(){
@@ -111,7 +98,6 @@ pageChange(newPage: number){
     .subscribe(
       data => {
         this.ListesReparationTerminee=data;
-      
       }) 
   }
   updateVehiculeTerminee(){
