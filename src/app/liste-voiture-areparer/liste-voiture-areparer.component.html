@@ -9,7 +9,7 @@
             <div class="example-container">
               <h2>A Reparer</h2>
               <div cdkDropList id="cdkDropList-0" [cdkDropListData]="ListesReparations" class="example-list" cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
-                <div class="example-box" *ngFor="let item of ListesReparations  | paginate: { itemsPerPage: 1, currentPage: pages1,totalItems : totallength1}" cdkDrag >
+                <div class="example-box" *ngFor="let item of ListesReparations" cdkDrag>
                   <div  >
                     <div class="card" style="overflow: hidden;">
                       <img src="../assets/images/{{item.typeReparation.image}}" height="200px"  class="card-img-top" alt="...">
@@ -21,35 +21,27 @@
                   </div>
                 </div>
               </div>
-              <div fxLayoutAlign="center center" class="pagination">
-                <pagination-controls (pageChange)="pages1 = $event"></pagination-controls>
-               </div>
             </div>
             <div class="example-container">
               <h2> En cours</h2>
               <div cdkDropList id="cdkDropList-1" [cdkDropListData]="ListesReparationEncours" class="example-list" cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
-                <div class="example-box" *ngFor="let item of ListesReparationEncours  | paginate: { itemsPerPage: 1, currentPage: pages2,totalItems : totallength2}" cdkDrag>
+                <div class="example-box" *ngFor="let item of ListesReparationEncours" cdkDrag>
                   <div class="card" style="overflow: hidden;">
                     <img src="../assets/images/{{item.typeReparation.image}}" height="200px"  class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title" style="color:chocolate;font-weight:bold">{{item.typeReparation.nomTypeReparation}}</h5>
                       <h5 class="card-title" style="color:rgb(103, 74, 53);font-weight:bold">{{item.typeReparation.prixReparation}} €</h5>
-                      <h6 style="color:rgb(239, 167, 0);font-weight:bold">dateHeureDebut: {{item.dateHeureDebut}} </h6><br>
+                      <h6 style="color:rgb(31, 183, 225);font-weight:bold">dateHeureDebut: {{item.dateHeureDebut}} </h6><br>
                     </div>
                   </div>
                 </div>
               </div>
-            <div fxLayoutAlign="center center" class="pagination">
-              <pagination-controls (pageChange)="pages2 = $event"></pagination-controls>
-             </div>
-
             </div>
-
             <div class="example-container">
               <h2 class="text"> Terminée  <button class="btn btn-warning" (click)="updateVehiculeTerminee()"> réparations finis
               </button><br> </h2>
               <div cdkDropList id="cdkDropList-2" [cdkDropListData]="ListesReparationTerminee" class="example-list" cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
-                <div class="example-box" *ngFor="let item of ListesReparationTerminee  | paginate: { itemsPerPage: 1, currentPage: pages3,totalItems : totallength3}" cdkDrag>
+                <div class="example-box" *ngFor="let item of ListesReparationTerminee" cdkDrag>
                   <div class="card" style="overflow: hidden;">
                     <img src="../assets/images/{{item.typeReparation.image}}" height="200px"  class="card-img-top" alt="...">
                     <div class="card-body">
@@ -60,13 +52,8 @@
                     </div>
                   </div>
                 </div>
-              </div>  
-              <div fxLayoutAlign="center center" class="pagination">
-                <pagination-controls (pageChange)="pages3 = $event"></pagination-controls>
-               </div> 
+              </div>   
             </div>
-
-            
             <!-- <div *ngFor="let item2 of ReparationTerminee">
             <h6> INFOS REPARATION TERMINEE </h6>
             <p> vehicule : {{item2.vehicule.nom}}</p>
