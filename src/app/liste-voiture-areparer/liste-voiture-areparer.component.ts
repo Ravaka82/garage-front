@@ -16,6 +16,13 @@ export class ListeVoitureAreparerComponent {
   ListesReparations: Reparation[] = [];
   ListesReparationEncours: Reparation[]=[];
   ListesReparationTerminee: Reparation[]=[];
+  ReparationTerminee:Reparation[] =[];
+  pages1: number = 1;
+  totallength1: any;
+  pages2: number = 1;
+  totallength2: any;
+  pages3: number = 1;
+  totallength3: any;
   constructor(private _snackBar: MatSnackBar,private serviceReparation: ReparationService,private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){
     this.todo = [];
     this.done = [];
@@ -29,12 +36,16 @@ export class ListeVoitureAreparerComponent {
   this.getReparationEnCours();
   this.getReparationTerminee();
 }
+pageChange(newPage: number){
+  this.router.navigate([''],{queryParams: {page: newPage}});
+}
   getListesReparationsAFaire(){
     console.log("vehicule"+this.route.snapshot.paramMap.get('vehicule'))
     this.serviceReparation.getReparationAFaire(this.route.snapshot.paramMap.get('vehicule'))
     .subscribe(
       data => {
         this.ListesReparations=data;
+        this.totallength1= this.ListesReparations.length;
         console.log("data"+ this.ListesReparations);
       }) 
   }
@@ -61,6 +72,7 @@ export class ListeVoitureAreparerComponent {
               }
               );
           }
+          this.totallength2= this.ListesReparationEncours.length;
         }
       if (event.container.id === 'cdkDropList-2') {
         this.done.push(event.previousContainer.data[event.previousIndex]);
@@ -81,6 +93,7 @@ export class ListeVoitureAreparerComponent {
             }
             );
         }
+        this.totallength3= this.ListesReparationTerminee.length;
       }
       event.previousContainer.data.splice(event.previousIndex,1);
     }
@@ -90,6 +103,7 @@ export class ListeVoitureAreparerComponent {
     .subscribe(
       data => {
         this.ListesReparationEncours=data;
+       
       }) 
   }
   getReparationTerminee(){
@@ -97,9 +111,31 @@ export class ListeVoitureAreparerComponent {
     .subscribe(
       data => {
         this.ListesReparationTerminee=data;
+      
       }) 
   }
-
+  updateVehiculeTerminee(){
+    this.serviceReparation.updateVehiculeTerminee(this.route.snapshot.paramMap.get('vehicule'))
+    .subscribe(
+      (response) => {
+      console.log(response);
+      this._snackBar.open("toutes les  reparations sont  terminée ✔️✔️ ", 'Close',{
+        duration:5000,
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+        panelClass: ['success-alert']
+      });
+      },
+      (error) => {
+      // handle the error
+      }
+      );
+      this.serviceReparation.getReparationTerminee(this.route.snapshot.paramMap.get('vehicule'))
+      .subscribe(
+        data => {
+          this.ReparationTerminee=data;
+        }) 
+  }
   getlien(val: string){
     var t=val.split("\\");
     console.log(t[2]);
