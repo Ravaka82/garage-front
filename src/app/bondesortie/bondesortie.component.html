@@ -39,12 +39,14 @@
                 <thead>
                 <th>nom TypeReparation</th>
                 <th>description</th>
+                <th>Temps reparations</th>
                 <th>prix</th>
                 </thead>
                 <tbody>
                 <tr *ngFor="let list of AllReparation">
                   <td style="color:coral">{{list.typeReparation.nomTypeReparation}}</td>
                   <td>{{list.typeReparation.description}}</td>
+                  <td>{{list.tempsReparation}}</td>
                   <td>{{list.typeReparation.prixReparation}} €</td>
                 </tr>
                 </tbody>
@@ -54,6 +56,7 @@
               <br>
               <div class="vehicule">
                 <h5 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">REPARATIONS</h5>
+                <p>DATE HEURE DEBUT  : {{this.AllReparation[0].dateHeureDebut}}</p>
                 <p>DATE HEURE FIN  : {{this.AllReparation[0].vehicule.DateHeureFin}}</p>
                 <p>TEMPS REPARATION : {{this.AllReparation[0].vehicule.totalTempsReparation}}</p>
                 <p>immatriculation : {{this.AllReparation[0].vehicule.immatriculation}}</p><br>

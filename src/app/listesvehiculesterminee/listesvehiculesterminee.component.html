@@ -16,8 +16,10 @@
               <p class="card-text" style="font-size:medium;font-weight: bold;">Nom Client : {{v.utilisateur.nom}} </p>
               <p class="card-text" style="font-size:medium;font-weight: bold;">email : {{v.utilisateur.email}} </p>
               <p class="card-text" style="font-size:medium;font-weight: bold;color:goldenrod">TOTAL PAYER : {{v.totalPrixReparation}} €</p>
-              <button class="btn btn-sucess" routerLink="/bondesortie/{{v._id}}"  type="submit">infos reparation
+              <button class="btn btn-sucess" routerLink="/bondesortie/{{v._id}}"  type="submit">Voir bon de sortie
              </button>
+             <button class="btn btn-suces"  (click)="validerBondeSortie()"  type="submit">Valider bon de sortie
+            </button>
             </div>
           </div>
         </div>

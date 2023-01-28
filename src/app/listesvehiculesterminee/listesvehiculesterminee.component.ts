@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Utilisateur } from '../Model/Utilisateur';
 import { Vehicule } from '../Model/vehicule';
@@ -14,8 +15,9 @@ export class ListesvehiculestermineeComponent {
   Utilisateur: Utilisateur = new Utilisateur();
   pages: number = 1;
   totallength: any;
+  idVehicule: any;
 
-  constructor(private servicevehicule:VehiculeService ,private router: Router) { }
+  constructor(private servicevehicule:VehiculeService ,private router: Router,private route: ActivatedRoute,private _snackBar: MatSnackBar,) { }
 
   ngOnInit(): void {
     this.getListesVehiculesterminee();
@@ -26,6 +28,7 @@ export class ListesvehiculestermineeComponent {
       .subscribe(
         data => {
           this.vehiculeTerminee=data;
+          this.idVehicule = data[0]._id;
           this.totallength= this.vehiculeTerminee.length;
           console.log(data);
         }) 
@@ -37,5 +40,22 @@ export class ListesvehiculestermineeComponent {
   }
   pageChange(newPage: number){
     this.router.navigate([''],{queryParams: {page: newPage}});
+  }
+  validerBondeSortie(){
+    console.log(this.route.snapshot.paramMap.get('_id'))
+    this.servicevehicule.updateStatusVehicule(this.idVehicule).subscribe(
+      (response) => {
+      console.log(response);
+      this._snackBar.open("bon de sortie validé ✔️✔️ ", 'Close',{
+        duration:5000,
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+        panelClass: ['success-alert']
+      });
+      },
+      (error) => {
+      // handle the error
+      }
+      );
   }
 }
