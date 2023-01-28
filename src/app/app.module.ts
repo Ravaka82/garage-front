@@ -38,6 +38,8 @@ import { DepotvoitureComponent } from './depotvoiture/depotvoiture.component';
 import { AvancemenreparationsComponent } from './avancemenreparations/avancemenreparations.component';
 import { FactureclientComponent } from './factureclient/factureclient.component';
 import { HistoriquesComponent } from './historiques/historiques.component';
+import { ListesvehiculestermineeComponent } from './listesvehiculesterminee/listesvehiculesterminee.component';
+import { BondesortieComponent } from './bondesortie/bondesortie.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +61,9 @@ import { HistoriquesComponent } from './historiques/historiques.component';
     DepotvoitureComponent,
     AvancemenreparationsComponent,
     FactureclientComponent,
-    HistoriquesComponent
+    HistoriquesComponent,
+    ListesvehiculestermineeComponent,
+    BondesortieComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,7 +83,8 @@ import { HistoriquesComponent } from './historiques/historiques.component';
     DragDropModule,
     NgxPrintModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

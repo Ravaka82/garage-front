@@ -17,6 +17,8 @@ import { DepotvoitureComponent } from './depotvoiture/depotvoiture.component';
 import { AvancemenreparationsComponent } from './avancemenreparations/avancemenreparations.component';
 import { FactureclientComponent } from './factureclient/factureclient.component';
 import { HistoriquesComponent } from './historiques/historiques.component';
+import { ListesvehiculestermineeComponent } from './listesvehiculesterminee/listesvehiculesterminee.component';
+import { BondesortieComponent } from './bondesortie/bondesortie.component';
 
 const routes: Routes = [
   {path: 'login', component: RegisterUserComponent},
@@ -35,7 +37,9 @@ const routes: Routes = [
   {path: 'DepotVoiture',component:DepotvoitureComponent},
   {path: 'Avancementreparation/:vehicule',component:AvancemenreparationsComponent},
   {path: 'Factureclient/:id',component:FactureclientComponent},
-  {path: 'Historiques',component:HistoriquesComponent}
+  {path: 'Historiques',component:HistoriquesComponent},
+  {path:'listesvehiculesterminee',component:ListesvehiculestermineeComponent},
+  {path:'bondesortie/:id',component:BondesortieComponent},
 ];
 
 @NgModule({
