@@ -19,8 +19,9 @@ export class ReparationService {
   url9='http://localhost:8080/api/reparation/updateOneReparationTerminee';
   url10='http://localhost:8080/api/reparation/getReparationavancement';
   url11="http://localhost:8080/api/reparation/updateVehiculeTerminee";
-  url12='http://localhost:8081/api/reparation/getFactureReparationParVoiture';
-
+  url12='http://localhost:8080/api/reparation/getFactureReparationParVoiture';
+  url13='http://localhost:8080/api/reparation/getBondeSortieParVoiture';
+  
   creationReparation(reparation: Reparation)
   {
     console.log(reparation._id)
@@ -74,4 +75,9 @@ getFactureClient(utilisateur: any,vehicule: any){
     const po = this.http.get<Reparation[]>(`${this.url12}/${utilisateur}/${vehicule}`);
     return po;
   }
+  getBondeSortieParVoiture(utilisateur: any,vehicule: any){
+    const po = this.http.get<Reparation[]>(`${this.url13}/${utilisateur}/${vehicule}`);
+    return po;
+  }
 }
+
