@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TypeReparation } from '../Model/TypeReparation';
 import { TypeReparationService } from '../Service/type-reparation.service';
 import {MatSnackBar,MatSnackBarConfig} from '@angular/material/snack-bar';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
@@ -13,13 +14,14 @@ export class TemplateComponent {
   pages: number = 1;
   totallength: any;
   config: any;
-  constructor(private _snackBar: MatSnackBar,private typeReparationservice: TypeReparationService,private router: Router,private route: ActivatedRoute){ 
+  constructor(private http:HttpClient,private _snackBar: MatSnackBar,private typeReparationservice: TypeReparationService,private router: Router,private route: ActivatedRoute){ 
   }
   pageChange(newPage: number){
     this.router.navigate([''],{queryParams: {page: newPage}});
   }
   ngOnInit(): void{
     this.listReparartion();
+
   }
   
   listReparartion(): void{//function liste
