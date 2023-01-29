@@ -27,7 +27,7 @@ export class AcceuilComponent implements OnInit{
   pages: number = 1;
   totallength: any;
   config: any;
-  
+  selectedFile!: File;
   constructor(private _snackBar: MatSnackBar,private reparationservice : ReparationService,private depotservice: DepotVoitureService,private typeReparationservice: TypeReparationService,private router: Router,private route: ActivatedRoute){
    }
   ngOnInit(){
@@ -48,40 +48,32 @@ getData(){
   return f;
  
 }
-saveDepotVoiture() {
-//   this.Vehicule.utilisateurId=localStorage.getItem('idUser');
-//   console.log(this.Vehicule.utilisateurId);
-//   this.depotservice.DepotVoiture(this.Vehicule)
-//   .subscribe(data => {
-//     console.log(data);
-//    console.log(this.Vehicule.nom);
-//     this.Vehicule = new Vehicule();
-    
-//     this._snackBar.open("Dépot de voiture avec succès ✔️✔️ ", 'Close',{
-//       duration:500000,
-//       // css matsnack bar dia any amn style.css ny css anreo
-//       verticalPosition: 'top',
-//       horizontalPosition: 'right',
-//       panelClass: ['success-alert']
-//     });
-//     this.router.navigate(['acceuil']);
-  
-//   },
-//   (error: HttpErrorResponse)=>{
-//     this._snackBar.open( error.error.message , 'Close',{
-//       duration:500000,
-//       // css matsnack bar dia any amn style.css ny css anreo
-//       verticalPosition: 'top',
-//       horizontalPosition: 'right',
-//       panelClass: ['warning-alert']
-//     });
-//   }
-// )
-};
-boutonsaveDepot() {//action boutton
-  this.submitted = true;
-  this.saveDepotVoiture();    
+onFileSelected(event:any) {
+  this.selectedFile = <File>event.target.files[0];
 }
+boutonsaveDepot() {
+  this.Vehicule.utilisateurId=localStorage.getItem('idUser');
+    const nom = this.Vehicule.nom;
+    const type = this.Vehicule.type;
+    const immatriculation = this.Vehicule.immatriculation;
+    const image = this.selectedFile;
+    const utilisateurId= this.Vehicule.utilisateurId;
+    this.depotservice.depotVoiture(nom, type, image, immatriculation, utilisateurId).subscribe(
+      (response) => {
+        console.log(response);
+        this._snackBar.open(" insertion vehicule avec succès ✔️✔️ ", 'Close', {
+          duration: 5000,
+          verticalPosition: 'top',
+          horizontalPosition: 'right',
+          panelClass: ['success-alert']
+        });
+      },
+      (error) => {
+        // handle the error
+        console.log(error)
+      });    
+  }
+
 listReparartion(): void{//function liste
   this.typeReparationservice.getAllTypeReparation()
     .subscribe(
