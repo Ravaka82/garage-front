@@ -41,6 +41,7 @@ import { HistoriquesComponent } from './historiques/historiques.component';
 import { ListesvehiculestermineeComponent } from './listesvehiculesterminee/listesvehiculesterminee.component';
 import { BondesortieComponent } from './bondesortie/bondesortie.component';
 import { ListesvehiculesbondesortievaliderComponent } from './listesvehiculesbondesortievalider/listesvehiculesbondesortievalider.component';
+import { RecuperervoitureComponent } from './recuperervoiture/recuperervoiture.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +67,7 @@ import { ListesvehiculesbondesortievaliderComponent } from './listesvehiculesbon
     ListesvehiculestermineeComponent,
     BondesortieComponent,
     ListesvehiculesbondesortievaliderComponent,
+    RecuperervoitureComponent,
   ],
   imports: [
     BrowserModule,

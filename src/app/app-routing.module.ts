@@ -20,7 +20,7 @@ import { HistoriquesComponent } from './historiques/historiques.component';
 import { ListesvehiculestermineeComponent } from './listesvehiculesterminee/listesvehiculesterminee.component';
 import { BondesortieComponent } from './bondesortie/bondesortie.component';
 import { ListesvehiculesbondesortievaliderComponent } from './listesvehiculesbondesortievalider/listesvehiculesbondesortievalider.component';
-
+import { RecuperervoitureComponent } from './recuperervoiture/recuperervoiture.component';
 
 const routes: Routes = [
   {path: 'login', component: RegisterUserComponent},
@@ -42,7 +42,8 @@ const routes: Routes = [
   {path: 'Historiques',component:HistoriquesComponent},
   {path:'listesvehiculesterminee',component:ListesvehiculestermineeComponent},
   {path:'bondesortie/:id',component:BondesortieComponent},
-  {path:'listesbondesortievalider',component:ListesvehiculesbondesortievaliderComponent}
+  {path:'listesbondesortievalider',component:ListesvehiculesbondesortievaliderComponent},
+  {path:'recuperervoiture',component:RecuperervoitureComponent}
 ];
 
 @NgModule({
