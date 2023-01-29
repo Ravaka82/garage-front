@@ -22,7 +22,8 @@ export class RegisterUserComponent implements AfterViewInit {
   motdepasseFinancier!: string;
   nomAtelier!: string;
   motdepasseAtelier!:string;
-
+  submitting1: boolean = false;
+  submitting2: boolean = false;
   constructor(private _snackBar: MatSnackBar,private roleservice: RoleServiceService,private utilisateurservice: UtilisateurService,private router: Router,private loginservice: LoginService) { }
   ngAfterViewInit(): void { 
     this.listRole();
@@ -39,6 +40,7 @@ export class RegisterUserComponent implements AfterViewInit {
         })
   }
   saveUtilisateur() {//creation utilisateur
+    this.submitting2 = true;
     this.utilisateurservice.creationUtilisateur(this.Utilisateur)
     .subscribe(data => {
       console.log(data);
@@ -50,6 +52,7 @@ export class RegisterUserComponent implements AfterViewInit {
         horizontalPosition: 'right',
         panelClass: ['success-alert']
       });
+      this.submitting2 = false;
       this.router.navigate(['login']);
       //this.gotoList();
     },
@@ -62,6 +65,7 @@ export class RegisterUserComponent implements AfterViewInit {
         panelClass: ['warning-alert']
       });
     }
+
   )};
   onSubmit() {//action boutton
     this.submitted = true;
@@ -73,6 +77,7 @@ export class RegisterUserComponent implements AfterViewInit {
 
   LoginUtilisateur()
   {
+    this.submitting1 = true;
    this.loginservice.loginUtilisateur(this.Utilisateur.nom,this.Utilisateur.mot_de_passe)
    .subscribe(
      (data:string) => {
@@ -97,6 +102,7 @@ export class RegisterUserComponent implements AfterViewInit {
         panelClass: ['warning-alert']
       });
     }) 
+   
    }
    //fonction antsoina eo am form login
    boutonLogin(){
