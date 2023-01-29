@@ -49,34 +49,35 @@ getData(){
  
 }
 saveDepotVoiture() {
-  this.Vehicule.utilisateurId=localStorage.getItem('idUser');
-  console.log(this.Vehicule.utilisateurId);
-  this.depotservice.DepotVoiture(this.Vehicule)
-  .subscribe(data => {
-    console.log(data);
-   console.log(this.Vehicule.nom);
-    this.Vehicule = new Vehicule();
+//   this.Vehicule.utilisateurId=localStorage.getItem('idUser');
+//   console.log(this.Vehicule.utilisateurId);
+//   this.depotservice.DepotVoiture(this.Vehicule)
+//   .subscribe(data => {
+//     console.log(data);
+//    console.log(this.Vehicule.nom);
+//     this.Vehicule = new Vehicule();
     
-    this._snackBar.open("Dépot de voiture avec succès ✔️✔️ ", 'Close',{
-      duration:500000,
-      // css matsnack bar dia any amn style.css ny css anreo
-      verticalPosition: 'top',
-      horizontalPosition: 'right',
-      panelClass: ['success-alert']
-    });
-    this.router.navigate(['acceuil']);
+//     this._snackBar.open("Dépot de voiture avec succès ✔️✔️ ", 'Close',{
+//       duration:500000,
+//       // css matsnack bar dia any amn style.css ny css anreo
+//       verticalPosition: 'top',
+//       horizontalPosition: 'right',
+//       panelClass: ['success-alert']
+//     });
+//     this.router.navigate(['acceuil']);
   
-  },
-  (error: HttpErrorResponse)=>{
-    this._snackBar.open( error.error.message , 'Close',{
-      duration:500000,
-      // css matsnack bar dia any amn style.css ny css anreo
-      verticalPosition: 'top',
-      horizontalPosition: 'right',
-      panelClass: ['warning-alert']
-    });
-  }
-)};
+//   },
+//   (error: HttpErrorResponse)=>{
+//     this._snackBar.open( error.error.message , 'Close',{
+//       duration:500000,
+//       // css matsnack bar dia any amn style.css ny css anreo
+//       verticalPosition: 'top',
+//       horizontalPosition: 'right',
+//       panelClass: ['warning-alert']
+//     });
+//   }
+// )
+};
 boutonsaveDepot() {//action boutton
   this.submitted = true;
   this.saveDepotVoiture();    

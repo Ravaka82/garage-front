@@ -1,25 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Vehicule } from '../Model/vehicule';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Reparation } from '../Model/Reparation';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DepotVoitureService {
-
+  private url = 'http://localhost:8080/api/vehicule/createVehicule';
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
   constructor(private http:HttpClient) { }
-  UrlDepot= 'http://localhost:8080/api/vehicule/createVehicule';
+  UrlDepot='http://localhost:8080/api/vehicule/createVehicule';
   Url2 = 'http://localhost:8080/api/vehicule/findVoitureClient';
   url3 = 'http://localhost:8080/api/vehicule/findVoitureValide'; 
   Url4 = 'http://localhost:8080/api/reparation/deleteReparation';
   Url5 = 'http://localhost:8080/api/reparation/findReparationById';
   Url6 = 'http://localhost:8080/api/reparation/listeDepotVoitureParVoiture';
 
-  DepotVoiture(vehicule: Vehicule)
-  {
-    
-    return this.http.post<Vehicule>(this.UrlDepot,vehicule);
+  depotVoiture(nom: string,type: string, file: File, immatriculation: string,_id: any){
+    const formData = new FormData();
+      formData.append('nom',nom);
+      formData.append('type',type);
+      formData.append('file',file);
+      formData.append('immatriculation',immatriculation);
+      formData.append('utilisateurId',_id);
+      console.log(formData)
+    return this.http.post<Vehicule>(this.UrlDepot,formData);
   }
   getOneVoitureClient(utilisateurId: any){
     const res = this.http.get<Vehicule[]>(`${this.Url2}/${utilisateurId}`);
