@@ -13,6 +13,8 @@ export class VehiculeService {
   Url4= 'http://localhost:8081/api/vehicule/findVoitureBondeSortieValider';
   url5= 'http://localhost:8081/api/vehicule/findVehiculeRecuperer';
   url6= 'http://localhost:8081/api/vehicule/updateStatusVehiculeRecuperer';
+  url7='http://localhost:8081/api/vehicule/findHistoriqueVehicule';
+
   getVehiculeReparationPayer()
   {
     return this.http.get<Vehicule[]>(this.Url1);
@@ -35,5 +37,9 @@ export class VehiculeService {
   updateStatusVehiculeRecuperer(_id:any){
     const val =this.http.post<Vehicule>(`${this.url6}/${_id}`,null);
     return val;
+  }
+  getHistoriqueVehicules(utilisateurId: any){
+    const repons =this.http.get<Vehicule[]>(`${this.url7}/${utilisateurId}`);
+    return repons;
   }
 }
