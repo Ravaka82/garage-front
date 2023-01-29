@@ -40,6 +40,7 @@ import { FactureclientComponent } from './factureclient/factureclient.component'
 import { HistoriquesComponent } from './historiques/historiques.component';
 import { ListesvehiculestermineeComponent } from './listesvehiculesterminee/listesvehiculesterminee.component';
 import { BondesortieComponent } from './bondesortie/bondesortie.component';
+import { ListesvehiculesbondesortievaliderComponent } from './listesvehiculesbondesortievalider/listesvehiculesbondesortievalider.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +65,7 @@ import { BondesortieComponent } from './bondesortie/bondesortie.component';
     HistoriquesComponent,
     ListesvehiculestermineeComponent,
     BondesortieComponent,
+    ListesvehiculesbondesortievaliderComponent,
   ],
   imports: [
     BrowserModule,

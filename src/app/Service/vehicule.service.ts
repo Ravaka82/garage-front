@@ -10,12 +10,12 @@ export class VehiculeService {
   Url1= 'http://localhost:8080/api/vehicule/findVehiculeReparationPayer';
   Url2= 'http://localhost:8080/api/vehicule/findVoitureTerminee';
   Url3= 'http://localhost:8080/api/vehicule/updateStatusVehicule';
+  Url4= 'http://localhost:8080/api/vehicule/findVoitureBondeSortieValider';
 
   getVehiculeReparationPayer()
   {
     return this.http.get<Vehicule[]>(this.Url1);
   }
-  
   getVehiculeTerminee()
   {
     return this.http.get<Vehicule[]>(this.Url2);
@@ -23,5 +23,8 @@ export class VehiculeService {
   updateStatusVehicule(_id:any){
     const val =this.http.post<Vehicule>(`${this.Url3}/${_id}`,null);
     return val;
+  }
+  getVoitureBondeSortieValider(){
+    return this.http.get<Vehicule[]>(this.Url4);
   }
 }
