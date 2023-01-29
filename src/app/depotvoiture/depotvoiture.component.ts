@@ -36,31 +36,25 @@ onFileSelected(event:any) {
 }
 boutonsaveDepot() {
   this.vehicule.utilisateurId=localStorage.getItem('idUser');
-    console.log(this.vehicule.nom);
-    console.log(this.vehicule.type);
-    console.log(this.selectedFile);
-    console.log(this.vehicule.immatriculation);
-    console.log(this.vehicule.utilisateurId);
     const nom = this.vehicule.nom;
     const type = this.vehicule.type;
     const immatriculation = this.vehicule.immatriculation;
-    const file = this.selectedFile;
-    const utilisateur= this.vehicule.utilisateurId;
-  this.depotservice.depotVoiture(nom,type,file,immatriculation,utilisateur).subscribe(
-    (response) => {
-      console.log(response);
-      this._snackBar.open(" succès ✔️✔️ ", 'Close',{
-        duration:5000,
-        verticalPosition: 'top',
-        horizontalPosition: 'right',
-        panelClass: ['success-alert']
-      });
+    const image = this.selectedFile;
+    const utilisateurId= this.vehicule.utilisateurId;
+    this.depotservice.depotVoiture(nom, type, image, immatriculation, utilisateurId).subscribe(
+      (response) => {
+        console.log(response);
+        this._snackBar.open(" succès ✔️✔️ ", 'Close', {
+          duration: 5000,
+          verticalPosition: 'top',
+          horizontalPosition: 'right',
+          panelClass: ['success-alert']
+        });
       },
       (error) => {
-      // handle the error
-      console.log(error)
-      }
-      );
+        // handle the error
+        console.log(error)
+      });    
   }
 }
 // boutonsaveDepot() {//action boutton
