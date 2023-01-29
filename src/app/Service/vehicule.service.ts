@@ -8,10 +8,20 @@ import { Vehicule } from '../Model/vehicule';
 export class VehiculeService {
   constructor(private http:HttpClient){}
   Url1= 'http://localhost:8080/api/vehicule/findVehiculeReparationPayer';
+  Url2= 'http://localhost:8080/api/vehicule/findVoitureTerminee';
+  Url3= 'http://localhost:8080/api/vehicule/updateStatusVehicule';
 
   getVehiculeReparationPayer()
   {
     return this.http.get<Vehicule[]>(this.Url1);
   }
   
+  getVehiculeTerminee()
+  {
+    return this.http.get<Vehicule[]>(this.Url2);
+  }
+  updateStatusVehicule(_id:any){
+    const val =this.http.post<Vehicule>(`${this.Url3}/${_id}`,null);
+    return val;
+  }
 }

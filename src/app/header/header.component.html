@@ -20,9 +20,10 @@
           <div *ngIf="getroleUser()=='ROLE_CLIENT'">
             <ul>
             <li><a class="nav-link scrollto active" [routerLink]="['/acceuil']">Accueil</a></li>
-	     <li><a class="nav-link scrollto" [routerLink]="['/DepotVoiture']">Dépot voiture</a></li>
+	          <li><a class="nav-link scrollto" [routerLink]="['/DepotVoiture']">Dépot voiture</a></li>
             <li><a class="nav-link scrollto" [routerLink]="['/listesVehicules']">Véhicules validés</a></li>
             <li><a class="nav-link scrollto" [routerLink]="['/listesVehiculesDeposer']">Vehicules déposées</a></li>
+            <li><a class="nav-link scrollto" [routerLink]="['/Historiques']">Historiques</a></li>
           </ul>
           </div>
           <div *ngIf="getroleUser()=='ROLE_RESPONSABLE_FINANCIER'">
@@ -36,6 +37,7 @@
             <ul>
             <li><a class="nav-link scrollto active" [routerLink]="['/acceuilatelier']">Accueil</a></li>
             <li><a class="nav-link scrollto">Reception</a></li>
+            <li><a class="nav-link scrollto"  [routerLink]="['/listesvehiculesterminee']"> listes vehicules terminée</a></li>
           </ul>
           </div>
           <div *ngIf="getidUser()!=null">

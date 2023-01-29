@@ -16,6 +16,7 @@ export class ListeVoitureAreparerComponent {
   ListesReparations: Reparation[] = [];
   ListesReparationEncours: Reparation[]=[];
   ListesReparationTerminee: Reparation[]=[];
+  ReparationTerminee:Reparation[] =[];
   constructor(private _snackBar: MatSnackBar,private serviceReparation: ReparationService,private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){
     this.todo = [];
     this.done = [];
@@ -69,7 +70,7 @@ export class ListeVoitureAreparerComponent {
           this.serviceReparation.updateOneReparationTerminee(item._id).subscribe(
             (response) => {
             console.log(response);
-            this._snackBar.open("Reparation terminée ✔️✔️ ", 'Close',{
+            this._snackBar.open(" un typeReparation terminée ✔️✔️ ", 'Close',{
               duration:5000,
               verticalPosition: 'top',
               horizontalPosition: 'right',
@@ -99,7 +100,28 @@ export class ListeVoitureAreparerComponent {
         this.ListesReparationTerminee=data;
       }) 
   }
-
+  updateVehiculeTerminee(){
+    this.serviceReparation.updateVehiculeTerminee(this.route.snapshot.paramMap.get('vehicule'))
+    .subscribe(
+      (response) => {
+      console.log(response);
+      this._snackBar.open("toutes les  reparations sont  terminée ✔️✔️ ", 'Close',{
+        duration:5000,
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+        panelClass: ['success-alert']
+      });
+      },
+      (error) => {
+      // handle the error
+      }
+      );
+      this.serviceReparation.getReparationTerminee(this.route.snapshot.paramMap.get('vehicule'))
+      .subscribe(
+        data => {
+          this.ReparationTerminee=data;
+        }) 
+  }
   getlien(val: string){
     var t=val.split("\\");
     console.log(t[2]);
