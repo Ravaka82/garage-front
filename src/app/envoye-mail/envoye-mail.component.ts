@@ -37,6 +37,7 @@ export class EnvoyeMailComponent implements OnInit {
       }
     }
     onSubmit(){
+     
       const to = this.nomForm.get("to")?.value;
       const subject = this.nomForm.get("subject")?.value;
       const text = this.nomForm.get("text")?.value;
@@ -49,6 +50,7 @@ export class EnvoyeMailComponent implements OnInit {
       console.log("file"+file);
       console.log("f"+f);
       console.log("filename"+filename);
+      this.submitting = true;
       this.paiementservice.sendMail(to,subject,text,file,filename).subscribe(
         (response) => {
         // do something with the response
@@ -60,10 +62,12 @@ export class EnvoyeMailComponent implements OnInit {
           horizontalPosition: 'right',
           panelClass: ['success-alert']
         });
+        this.submitting = false;
         },
         (error) => {
         // handle the error
         }
         );
+      
     }
 }

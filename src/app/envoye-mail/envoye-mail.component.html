@@ -28,6 +28,7 @@
                     <img src='../assets/images/send.png'>
                     <span> Envoyer </span>
                 </button>
+                <mat-spinner mode="indeterminate" *ngIf="submitting" style="margin:0 auto;" [diameter]="70"></mat-spinner> 
             </form>
         <div fxLayoutAlign="flex-end" fxLayoutGap="14px">
             <button mat-flat-button color="white" routerLink="/VehiculeReparationPayer"><img src="../assets/images/l.png" width="30" alt=""></button>

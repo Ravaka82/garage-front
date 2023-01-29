@@ -12,10 +12,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class DepotvoitureComponent implements OnInit{
  
-  Vehicule: Vehicule = new Vehicule();
+  vehicule: Vehicule = new Vehicule();
   submitted = false;
   Vehicules!: Vehicule[];
   NomUser!: any;
+  selectedFile!: File;
   constructor(private _snackBar: MatSnackBar,private depotservice: DepotVoitureService,private router: Router,private route: ActivatedRoute){
    }
   ngOnInit(){
@@ -23,7 +24,6 @@ export class DepotvoitureComponent implements OnInit{
     this.NomUser = localStorage.getItem('NomUser');
     
   }
-
 getData(){
   let f=localStorage.getItem('idUser');
   //console.log(f);
@@ -31,37 +31,40 @@ getData(){
   return f;
  
 }
-saveDepotVoiture() {
-  this.Vehicule.utilisateurId=localStorage.getItem('idUser');
-  console.log(this.Vehicule.utilisateurId);
-  this.depotservice.DepotVoiture(this.Vehicule)
-  .subscribe(data => {
-    console.log(data);
-   console.log(this.Vehicule.nom);
-    this.Vehicule = new Vehicule();
-    
-    this._snackBar.open("Dépot de voiture avec succès ✔️✔️ ", 'Close',{
-      duration:500000,
-      // css matsnack bar dia any amn style.css ny css anreo
-      verticalPosition: 'top',
-      horizontalPosition: 'right',
-      panelClass: ['success-alert']
-    });
-    this.router.navigate(['DepotVoiture']);
-  
-  },
-  (error: HttpErrorResponse)=>{
-    this._snackBar.open( error.error.message , 'Close',{
-      duration:500000,
-      // css matsnack bar dia any amn style.css ny css anreo
-      verticalPosition: 'top',
-      horizontalPosition: 'right',
-      panelClass: ['warning-alert']
-    });
+onFileSelected(event:any) {
+  this.selectedFile = <File>event.target.files[0];
+}
+boutonsaveDepot() {
+  this.vehicule.utilisateurId=localStorage.getItem('idUser');
+    console.log(this.vehicule.nom);
+    console.log(this.vehicule.type);
+    console.log(this.selectedFile);
+    console.log(this.vehicule.immatriculation);
+    console.log(this.vehicule.utilisateurId);
+    const nom = this.vehicule.nom;
+    const type = this.vehicule.type;
+    const immatriculation = this.vehicule.immatriculation;
+    const file = this.selectedFile;
+    const utilisateur= this.vehicule.utilisateurId;
+  this.depotservice.depotVoiture(nom,type,file,immatriculation,utilisateur).subscribe(
+    (response) => {
+      console.log(response);
+      this._snackBar.open(" succès ✔️✔️ ", 'Close',{
+        duration:5000,
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+        panelClass: ['success-alert']
+      });
+      },
+      (error) => {
+      // handle the error
+      console.log(error)
+      }
+      );
   }
-)};
-boutonsaveDepot() {//action boutton
-  this.submitted = true;
-  this.saveDepotVoiture();    
 }
-}
+// boutonsaveDepot() {//action boutton
+//   this.submitted = true;
+//   this.saveDepotVoiture();    
+// }
+
