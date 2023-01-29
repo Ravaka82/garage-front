@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Vehicule } from '../Model/vehicule';
 import { VehiculeService } from '../Service/vehicule.service';
@@ -13,7 +14,8 @@ export class RecuperervoitureComponent implements OnInit{
     pages: number = 1;
     totallength: any;
     ListesVehicule!: Vehicule[];
-    constructor(private servicevehicule: VehiculeService,private router: Router,private route: ActivatedRoute){
+    idVehicule: any;
+    constructor(private _snackBar: MatSnackBar,private servicevehicule: VehiculeService,private router: Router,private route: ActivatedRoute){
      }
   
     ngOnInit(): void {
@@ -28,6 +30,7 @@ export class RecuperervoitureComponent implements OnInit{
     data => {
       this.ListesVehicule=data;
       console.log(data);
+      this.idVehicule = data[0]._id;
       this.totallength= this.ListesVehicule.length;
     }) 
     }
@@ -38,5 +41,24 @@ export class RecuperervoitureComponent implements OnInit{
       var t=val.split("\\");
       console.log(t[2]);
       return t[2];
+    }
+    validerRecuperationVoiture(){
+      console.log(this.route.snapshot.paramMap.get('_id'))
+      this.servicevehicule.updateStatusVehiculeRecuperer(this.idVehicule).subscribe(
+        (response) => {
+        console.log(response);
+        this._snackBar.open("Voiture récupérer ✔️✔️ ", 'Close',{
+          duration:5000,
+          verticalPosition: 'top',
+          horizontalPosition: 'right',
+          panelClass: ['success-alert']
+        });
+        this.getListesVehiculeRecuperer();
+        },
+        (error) => {
+        // handle the error
+        }
+        );
+        
     } 
   }
