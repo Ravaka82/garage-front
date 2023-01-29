@@ -21,6 +21,7 @@ import { ListesvehiculestermineeComponent } from './listesvehiculesterminee/list
 import { BondesortieComponent } from './bondesortie/bondesortie.component';
 import { ListesvehiculesbondesortievaliderComponent } from './listesvehiculesbondesortievalider/listesvehiculesbondesortievalider.component';
 import { RecuperervoitureComponent } from './recuperervoiture/recuperervoiture.component';
+import { HistoriquesreparationComponent } from './historiquesreparation/historiquesreparation.component';
 
 const routes: Routes = [
   {path: 'login', component: RegisterUserComponent},
@@ -43,7 +44,8 @@ const routes: Routes = [
   {path:'listesvehiculesterminee',component:ListesvehiculestermineeComponent},
   {path:'bondesortie/:id',component:BondesortieComponent},
   {path:'listesbondesortievalider',component:ListesvehiculesbondesortievaliderComponent},
-  {path:'recuperervoiture',component:RecuperervoitureComponent}
+  {path:'recuperervoiture',component:RecuperervoitureComponent},
+  {path:'Historiquesreparations/:id',component:HistoriquesreparationComponent}
 ];
 
 @NgModule({

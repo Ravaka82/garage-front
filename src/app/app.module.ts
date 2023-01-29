@@ -42,7 +42,7 @@ import { ListesvehiculestermineeComponent } from './listesvehiculesterminee/list
 import { BondesortieComponent } from './bondesortie/bondesortie.component';
 import { ListesvehiculesbondesortievaliderComponent } from './listesvehiculesbondesortievalider/listesvehiculesbondesortievalider.component';
 import { RecuperervoitureComponent } from './recuperervoiture/recuperervoiture.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { HistoriquesreparationComponent } from './historiquesreparation/historiquesreparation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +69,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     BondesortieComponent,
     ListesvehiculesbondesortievaliderComponent,
     RecuperervoitureComponent,
+    HistoriquesreparationComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,7 +90,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     NgxPrintModule,
     MatDialogModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
 
   ],
   providers: [],
