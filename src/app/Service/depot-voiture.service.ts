@@ -20,15 +20,15 @@ export class DepotVoitureService {
   Url5 = 'http://localhost:8080/api/reparation/findReparationById';
   Url6 = 'http://localhost:8080/api/reparation/listeDepotVoitureParVoiture';
 
-  depotVoiture(nom: string,type: string, file: File, immatriculation: string,_id: any){
+  depotVoiture(nom: string,type: string, file: File, immatriculation: string, utilisateurId: any){
     const formData = new FormData();
       formData.append('nom',nom);
       formData.append('type',type);
-      formData.append('file',file);
+      formData.append('image',file);
       formData.append('immatriculation',immatriculation);
-      formData.append('utilisateurId',_id);
+      formData.append('utilisateurId',utilisateurId);
       console.log(formData)
-    return this.http.post<Vehicule>(this.UrlDepot,formData);
+    return this.http.post<Vehicule>(this.url,formData);
   }
   getOneVoitureClient(utilisateurId: any){
     const res = this.http.get<Vehicule[]>(`${this.Url2}/${utilisateurId}`);
