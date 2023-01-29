@@ -7,10 +7,11 @@ import { Vehicule } from '../Model/vehicule';
 })
 export class VehiculeService {
   constructor(private http:HttpClient){}
-  Url1= 'http://localhost:8080/api/vehicule/findVehiculeReparationPayer';
-  Url2= 'http://localhost:8080/api/vehicule/findVoitureTerminee';
-  Url3= 'http://localhost:8080/api/vehicule/updateStatusVehicule';
-  Url4= 'http://localhost:8080/api/vehicule/findVoitureBondeSortieValider';
+  Url1= 'http://localhost:8081/api/vehicule/findVehiculeReparationPayer';
+  Url2= 'http://localhost:8081/api/vehicule/findVoitureTerminee';
+  Url3= 'http://localhost:8081/api/vehicule/updateStatusVehicule';
+  Url4= 'http://localhost:8081/api/vehicule/findVoitureBondeSortieValider';
+  url5= 'http://localhost:8081/api/vehicule/findVehiculeRecuperer';
 
   getVehiculeReparationPayer()
   {
@@ -26,5 +27,9 @@ export class VehiculeService {
   }
   getVoitureBondeSortieValider(){
     return this.http.get<Vehicule[]>(this.Url4);
+  }
+  getListesVehiculeRecuperer(utilisateurId: any){
+    const repons =this.http.get<Vehicule[]>(`${this.url5}/${utilisateurId}`);
+    return repons;
   }
 }
