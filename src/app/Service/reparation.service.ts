@@ -8,20 +8,20 @@ import { Vehicule } from '../Model/vehicule';
 })
 export class ReparationService {
   constructor(private http:HttpClient) { }
-  Url1='http://localhost:8081/api/reparation/createReparation';
-  Url2='http://localhost:8081/api/reparation/findDepotReparationParVoiture';
-  url3='http://localhost:8081/api/reparation/listeVehiculeDepot';
-  url4='http://localhost:8081/api/reparation/getReparationParVehicule';
-  url5='http://localhost:8081/api/reparation/updateOneReparationEncours';
-  url6='http://localhost:8081/api/reparation/getReparationAFaire';
-  url7='http://localhost:8081/api/reparation/getReparationEnCours';
-  url8='http://localhost:8081/api/reparation/getReparationTerminee';
-  url9='http://localhost:8081/api/reparation/updateOneReparationTerminee';
-  url10='http://localhost:8081/api/reparation/getReparationavancement';
-  url11="http://localhost:8081/api/reparation/updateVehiculeTerminee";
-  url12='http://localhost:8081/api/reparation/getFactureReparationParVoiture';
-  url13='http://localhost:8081/api/reparation/getBondeSortieParVoiture';
-  url14='http://localhost:8081/api/reparation/getHistoriqueReparation';
+  Url1='http://localhost:8080/api/reparation/createReparation';
+  Url2='http://localhost:8080/api/reparation/findDepotReparationParVoiture';
+  url3='http://localhost:8080/api/reparation/listeVehiculeDepot';
+  url4='http://localhost:8080/api/reparation/getReparationParVehicule';
+  url5='http://localhost:8080/api/reparation/updateOneReparationEncours';
+  url6='http://localhost:8080/api/reparation/getReparationAFaire';
+  url7='http://localhost:8080/api/reparation/getReparationEnCours';
+  url8='http://localhost:8080/api/reparation/getReparationTerminee';
+  url9='http://localhost:8080/api/reparation/updateOneReparationTerminee';
+  url10='http://localhost:8080/api/reparation/getReparationavancement';
+  url11="http://localhost:8080/api/reparation/updateVehiculeTerminee";
+  url12='http://localhost:8080/api/reparation/getFactureReparationParVoiture';
+  url13='http://localhost:8080/api/reparation/getBondeSortieParVoiture';
+  url14='http://localhost:8080/api/reparation/getHistoriqueReparation';
 
   creationReparation(reparation: Reparation)
   {

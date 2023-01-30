@@ -7,13 +7,13 @@ import { Vehicule } from '../Model/vehicule';
 })
 export class VehiculeService {
   constructor(private http:HttpClient){}
-  Url1= 'http://localhost:8081/api/vehicule/findVehiculeReparationPayer';
-  Url2= 'http://localhost:8081/api/vehicule/findVoitureTerminee';
-  Url3= 'http://localhost:8081/api/vehicule/updateStatusVehicule';
-  Url4= 'http://localhost:8081/api/vehicule/findVoitureBondeSortieValider';
-  url5= 'http://localhost:8081/api/vehicule/findVehiculeRecuperer';
-  url6= 'http://localhost:8081/api/vehicule/updateStatusVehiculeRecuperer';
-  url7='http://localhost:8081/api/vehicule/findHistoriqueVehicule';
+  Url1= 'http://localhost:8080/api/vehicule/findVehiculeReparationPayer';
+  Url2= 'http://localhost:8080/api/vehicule/findVoitureTerminee';
+  Url3= 'http://localhost:8080/api/vehicule/updateStatusVehicule';
+  Url4= 'http://localhost:8080/api/vehicule/findVoitureBondeSortieValider';
+  url5= 'http://localhost:8080/api/vehicule/findVehiculeRecuperer';
+  url6= 'http://localhost:8080/api/vehicule/updateStatusVehiculeRecuperer';
+  url7='http://localhost:8080/api/vehicule/findHistoriqueVehicule';
 
   getVehiculeReparationPayer()
   {
