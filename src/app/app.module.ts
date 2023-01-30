@@ -44,6 +44,8 @@ import { ListesvehiculesbondesortievaliderComponent } from './listesvehiculesbon
 import { RecuperervoitureComponent } from './recuperervoiture/recuperervoiture.component';
 import { HistoriquesreparationComponent } from './historiquesreparation/historiquesreparation.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { StatesComponent } from './states/states.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +73,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     ListesvehiculesbondesortievaliderComponent,
     RecuperervoitureComponent,
     HistoriquesreparationComponent,
+    StatesComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +94,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     NgxPrintModule,
     MatDialogModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgApexchartsModule
 
   ],
   providers: [],

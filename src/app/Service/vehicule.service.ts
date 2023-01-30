@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { TempsMoyen } from '../Model/TempsMoyen';
 import { Vehicule } from '../Model/vehicule';
 
 @Injectable({
@@ -14,6 +15,7 @@ export class VehiculeService {
   url5= 'http://localhost:8080/api/vehicule/findVehiculeRecuperer';
   url6= 'http://localhost:8080/api/vehicule/updateStatusVehiculeRecuperer';
   url7='http://localhost:8080/api/vehicule/findHistoriqueVehicule';
+  url8= 'http://localhost:8080/api/vehicule/stats';
 
   getVehiculeReparationPayer()
   {
@@ -41,5 +43,8 @@ export class VehiculeService {
   getHistoriqueVehicules(utilisateurId: any){
     const repons =this.http.get<Vehicule[]>(`${this.url7}/${utilisateurId}`);
     return repons;
+  }
+  getListeTempsMoyen(){
+    return this.http.get<TempsMoyen[]>(this.url8);
   }
 }
