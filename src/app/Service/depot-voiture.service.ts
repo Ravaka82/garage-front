@@ -27,8 +27,11 @@ export class DepotVoitureService {
       formData.append('image',file);
       formData.append('immatriculation',immatriculation);
       formData.append('utilisateurId',utilisateurId);
+      const headers = new HttpHeaders();
+      headers.append('Content-Type', 'multipart/form/data');
+
       console.log(formData)
-    return this.http.post<Vehicule>(this.url,formData);
+    return this.http.post<Vehicule>(this.url,formData,{headers});
   }
   getOneVoitureClient(utilisateurId: any){
     const res = this.http.get<Vehicule[]>(`${this.Url2}/${utilisateurId}`);
