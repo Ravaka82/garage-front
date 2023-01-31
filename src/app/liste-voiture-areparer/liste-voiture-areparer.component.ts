@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Reparation } from '../Model/Reparation';
 import { PaiementService } from '../Service/paiement.service';
 import { ReparationService } from '../Service/reparation.service';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 @Component({
   selector: 'app-liste-voiture-areparer',
   templateUrl: './liste-voiture-areparer.component.html',
@@ -17,7 +16,7 @@ export class ListeVoitureAreparerComponent {
   ListesReparationEncours: Reparation[]=[];
   ListesReparationTerminee: Reparation[]=[];
   ReparationTerminee:Reparation[] =[];
-  constructor(private _snackBar: MatSnackBar,private serviceReparation: ReparationService,private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){
+  constructor(private changeDetectorRef: ChangeDetectorRef,private _snackBar: MatSnackBar,private serviceReparation: ReparationService,private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){
     this.todo = [];
     this.done = [];
   }
@@ -56,6 +55,7 @@ export class ListeVoitureAreparerComponent {
                 horizontalPosition: 'right',
                 panelClass: ['success-alert']
               });
+              this.reloadComponent();
               },
               (error) => {
               // handle the error
@@ -76,6 +76,7 @@ export class ListeVoitureAreparerComponent {
               horizontalPosition: 'right',
               panelClass: ['success-alert']
             });
+            this.reloadComponent();
             },
             (error) => {
             // handle the error
@@ -86,6 +87,12 @@ export class ListeVoitureAreparerComponent {
       event.previousContainer.data.splice(event.previousIndex,1);
     }
   }
+  reloadComponent() {
+    let currentUrl = this.router.url;
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate([currentUrl]);
+    }
   getReparationEnCours(){
     this.serviceReparation.getReparationEnCours(this.route.snapshot.paramMap.get('vehicule'))
     .subscribe(

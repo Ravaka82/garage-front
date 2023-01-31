@@ -95,10 +95,12 @@ listReparartion(): void{//function liste
  setVehiculeAndTypeReparationId(vehiculeId: any, typeReparationId: any) {
   this.Reparations.vehicule = vehiculeId;
   this.Reparations.typeReparation = typeReparationId;
+  console.log("Reparations.vehicule "+this.Reparations.vehicule );
+  console.log("Reparations.typeReparation"+ this.Reparations.typeReparation)
 }
 getListeDepotVoiture(){
-  console.log(this.Reparations);
-  console.log(  this.Vehicule._id  );
+  console.log("id reparation"+this.Reparations._id);
+  console.log("id vehicule"+this.Vehicule._id  );
   console.log("utilisateur"+localStorage.getItem('idUser'));
   // this.vehiculeId = this.Vehicule.id ;
   // console.log( this.vehiculeId );

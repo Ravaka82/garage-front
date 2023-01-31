@@ -28,6 +28,7 @@ export class RecuperervoitureComponent implements OnInit{
     
     getListesVehiculeRecuperer(){//listes vehicule à réparer
       this.Vehicule.utilisateurId=localStorage.getItem('idUser');
+      console.log(this.Vehicule.utilisateurId)
   this.servicevehicule.getListesVehiculeRecuperer(this.Vehicule.utilisateurId).subscribe(
     data => {
       this.ListesVehicule=data;

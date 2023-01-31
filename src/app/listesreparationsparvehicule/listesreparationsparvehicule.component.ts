@@ -14,6 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ListesreparationsparvehiculeComponent implements OnInit {
   Vehicule: Vehicule = new Vehicule();
   AllReparation!: Reparation[];
+  OneReparation!: Reparation[];
   displayStyle = "none";
   pages: number = 1;
   totallength: any;
@@ -31,6 +32,7 @@ getListesReparationsParVehicule(){
   .subscribe(
     data => {
       this.AllReparation=data;
+      this.OneReparation = data;
       this.idVehicule=data[0].vehicule._id;
       if(data[0].vehicule.status==="en attente") this.estPayer = true
       this.totallength= this.AllReparation.length;
@@ -46,20 +48,22 @@ pageChange(newPage: number){
   this.router.navigate([''],{queryParams: {page: newPage}});
 }
 openPopup(_id:any) {
+  console.log("idd"+_id)
   this.depotVoitureService.getListeReparationByReparation(_id)
+  
     .subscribe(
       data => {
-        this.AllReparation=data;
+        this.OneReparation=data;
         console.log(data);
       }) 
   this.displayStyle = "block";
-  this.getListesReparationsParVehicule()
+  this.ngOnInit();
 }
 closePopup() {
   this.displayStyle = "none";
 }
 confirme(_id:string){
-console.log(_id);
+console.log(_id); 
 this.depotVoitureService.deleteReparation(_id)
 .subscribe(
   data => {

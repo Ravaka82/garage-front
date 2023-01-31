@@ -48,11 +48,11 @@
         <h4 class="modal-title"> Confirmation <img src="../assets/images/danger.png" width="35"></h4>
       </div>
       <div class="modal-body">
-        <td><p>Voulez vous vraiment effacer la reparation : {{AllReparation[0].typeReparation.nomTypeReparation}} </p></td>
+        <td><p>Voulez vous vraiment effacer la reparation : {{OneReparation[0].typeReparation.nomTypeReparation}} </p></td>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" 
-        (click)="confirme(AllReparation[0]._id)">
+        (click)="confirme(OneReparation[0]._id)">
                          OUI
         </button>
         <button type="button" class="btn btn-warning" 
