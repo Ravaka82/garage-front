@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Vehicule } from '../Model/vehicule';
 import { VehiculeService } from '../Service/vehicule.service';
 
@@ -15,6 +16,7 @@ export class RecuperervoitureComponent implements OnInit{
     totallength: any;
     ListesVehicule!: Vehicule[];
     idVehicule: any;
+    baseUrl = environment.apiUrl;
     constructor(private _snackBar: MatSnackBar,private servicevehicule: VehiculeService,private router: Router,private route: ActivatedRoute){
      }
   

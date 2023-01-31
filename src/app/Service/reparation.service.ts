@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Reparation } from '../Model/Reparation';
 import { Vehicule } from '../Model/vehicule';
 
@@ -7,21 +8,22 @@ import { Vehicule } from '../Model/vehicule';
   providedIn: 'root'
 })
 export class ReparationService {
+  private baseUrl = environment.apiUrl;
   constructor(private http:HttpClient) { }
-  Url1='http://localhost:8080/api/reparation/createReparation';
-  Url2='http://localhost:8080/api/reparation/findDepotReparationParVoiture';
-  url3='http://localhost:8080/api/reparation/listeVehiculeDepot';
-  url4='http://localhost:8080/api/reparation/getReparationParVehicule';
-  url5='http://localhost:8080/api/reparation/updateOneReparationEncours';
-  url6='http://localhost:8080/api/reparation/getReparationAFaire';
-  url7='http://localhost:8080/api/reparation/getReparationEnCours';
-  url8='http://localhost:8080/api/reparation/getReparationTerminee';
-  url9='http://localhost:8080/api/reparation/updateOneReparationTerminee';
-  url10='http://localhost:8080/api/reparation/getReparationavancement';
-  url11="http://localhost:8080/api/reparation/updateVehiculeTerminee";
-  url12='http://localhost:8080/api/reparation/getFactureReparationParVoiture';
-  url13='http://localhost:8080/api/reparation/getBondeSortieParVoiture';
-  url14='http://localhost:8080/api/reparation/getHistoriqueReparation';
+  Url1= `${this.baseUrl}/reparation/createReparation`;
+  Url2= `${this.baseUrl}/reparation/findDepotReparationParVoiture`;
+  url3= `${this.baseUrl}/reparation/listeVehiculeDepot`;
+  url4= `${this.baseUrl}/reparation/getReparationParVehicule`;
+  url5= `${this.baseUrl}/reparation/updateOneReparationEncours`;
+  url6= `${this.baseUrl}/reparation/getReparationAFaire`;
+  url7= `${this.baseUrl}/reparation/getReparationEnCours`;
+  url8= `${this.baseUrl}/reparation/getReparationTerminee`;
+  url9= `${this.baseUrl}/reparation/updateOneReparationTerminee`;
+  url10= `${this.baseUrl}/reparation/getReparationavancement`;
+  url11= `${this.baseUrl}/reparation/updateVehiculeTerminee`;
+  url12= `${this.baseUrl}/reparation/getFactureReparationParVoiture`;
+  url13= `${this.baseUrl}/reparation/getBondeSortieParVoiture`;
+  url14= `${this.baseUrl}/reparation/getHistoriqueReparation`;
 
   creationReparation(reparation: Reparation)
   {

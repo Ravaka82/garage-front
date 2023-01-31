@@ -22,7 +22,7 @@
                     <tbody>
                       <tr *ngFor=" let vehicules of listeVehicule | paginate: { itemsPerPage: 3, currentPage: pages,totalItems : totallength} ">
                         
-                        <th scope="row"><img src="http://localhost:8080/images/{{vehicules.image}}" class="card-img-top" style="width:200px;height:200px" alt="..."></th>
+                        <th scope="row"><img [src]="this.baseUrl+'/images/'+vehicules.image" class="card-img-top" style="width:200px;height:200px" alt="..."></th>
                         <td style="color:#ef6603;font-weight:bold">{{vehicules.nom}}</td>
                         <td>{{vehicules.type}}</td>
                         <td>{{vehicules.immatriculation}}</td>

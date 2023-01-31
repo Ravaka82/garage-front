@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Vehicule } from '../Model/vehicule';
 import { DepotVoitureService } from '../Service/depot-voiture.service';
 
@@ -14,6 +15,7 @@ export class ListesvehiculesComponent implements OnInit{
   pages: number = 1;
   totallength: any;
   config: any;
+  baseUrl = environment.apiUrl;
   constructor(private depotservice: DepotVoitureService ,private router: Router,private route: ActivatedRoute){ 
   }
   pageChange(newPage: number){

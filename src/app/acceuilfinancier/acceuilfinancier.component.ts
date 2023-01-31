@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Paiement } from '../Model/Paiement';
 import { Utilisateur } from '../Model/Utilisateur';
 import { Vehicule } from '../Model/vehicule';
@@ -21,6 +22,7 @@ export class AcceuilfinancierComponent implements OnInit{
   pages: number = 1;
   totallength: any;
   totalPrice: any;
+  baseUrl = environment.apiUrl;
   constructor(private _snackBar: MatSnackBar,private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){}
 
   ngOnInit(): void {

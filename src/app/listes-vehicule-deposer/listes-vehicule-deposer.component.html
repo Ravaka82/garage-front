@@ -9,7 +9,7 @@
           <div class="row">
             <div class="col-lg-3 col-md-6 d-flex align-items-stretch" *ngFor=" let vehiculerepare of VehiculeReparer | paginate: { itemsPerPage: 8, currentPage: pages,totalItems : totallength}">
               <div class="card" style="overflow: hidden;">
-                <img src="http://localhost:8080/images/{{vehiculerepare.image}}" height="200px"  class="card-img-top" alt="...">
+                <img [src]="this.baseUrl+'/images/'+vehiculerepare.image" height="200px"  class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title" style="color:chocolate;font-weight:bold">{{vehiculerepare.nom}}</h5>
                   <p class="card-text" style="font-size:medium;font-weight: bold;">{{vehiculerepare.type}} </p>

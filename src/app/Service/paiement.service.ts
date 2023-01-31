@@ -2,17 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Paiement } from '../Model/Paiement';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaiementService {
+  private baseUrl = environment.apiUrl;
   constructor(private http: HttpClient) { }
-  UrlDepot= 'http://localhost:8080/api/paiement/validerPaiement';
-  url2='http://localhost:8080/api/paiement/findVehiculeEnAttente';
-  Url3='http://localhost:8080/api/paiement/accepterPaiement';
-  Url4='http://localhost:8080/api/paiement/getAllPaiementValider';
-  Url5='http://localhost:8080/api/paiement/sender';
+  UrlDepot= `${this.baseUrl}/paiement/validerPaiement`;
+  url2=`${this.baseUrl}/paiement/findVehiculeEnAttente`;
+  Url3=`${this.baseUrl}/paiement/accepterPaiement`;
+  Url4=`${this.baseUrl}/paiement/getAllPaiementValider`;
+  Url5=`${this.baseUrl}/paiement/sender`;
 
   ValidationPaiement(vehicule: String, prix: number) {
     return this.http.post<Paiement>(this.UrlDepot, {vehicule, prix});

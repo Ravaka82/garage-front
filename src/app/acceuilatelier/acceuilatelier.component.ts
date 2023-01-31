@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Paiement } from '../Model/Paiement';
 import { Utilisateur } from '../Model/Utilisateur';
 import { Vehicule } from '../Model/vehicule';
@@ -18,7 +19,7 @@ export class AcceuilatelierComponent {
   pages: number = 1;
   totallength: any;
   totalPrice: any;
-
+  baseUrl = environment.apiUrl;
   constructor(private paiementservice: PaiementService,private router: Router,private route: ActivatedRoute){}
 
   ngOnInit(): void {

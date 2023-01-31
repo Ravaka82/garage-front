@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { TypeReparation } from '../Model/TypeReparation';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TypeReparationService {
+  private baseUrl = environment.apiUrl;
   constructor(private http:HttpClient){}
-  Url1= 'http://localhost:8080/api/typeReparation/findTypeReparation';
+  Url1= `${this.baseUrl}/typeReparation/findTypeReparation`;
 
   getAllTypeReparation()
   {

@@ -1,13 +1,14 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-
+  private baseUrl = environment.apiUrl;
   constructor(private http:HttpClient){}
-  Url= 'http://localhost:8080/api/auth/signin';
+  Url=`${this.baseUrl}/auth/signin`;
 
   loginUtilisateur(nom:string,mot_de_passe:string){
     let params = new HttpParams();

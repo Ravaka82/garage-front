@@ -3,22 +3,24 @@ import { Vehicule } from '../Model/vehicule';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Reparation } from '../Model/Reparation';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DepotVoitureService {
-  private url = 'http://localhost:8080/api/vehicule/createVehicule';
+  private baseUrl = environment.apiUrl;
+  private url = `${this.baseUrl}/vehicule/createVehicule`;
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
   constructor(private http:HttpClient) { }
-  UrlDepot='http://localhost:8080/api/vehicule/createVehicule';
-  Url2 = 'http://localhost:8080/api/vehicule/findVoitureClient';
-  url3 = 'http://localhost:8080/api/vehicule/findVoitureValide'; 
-  Url4 = 'http://localhost:8080/api/reparation/deleteReparation';
-  Url5 = 'http://localhost:8080/api/reparation/findReparationById';
-  Url6 = 'http://localhost:8080/api/reparation/listeDepotVoitureParVoiture';
+  UrlDepot=`${this.baseUrl}/vehicule/createVehicule`;
+  Url2 = `${this.baseUrl}/vehicule/findVoitureClient`;
+  url3 = `${this.baseUrl}/vehicule/findVoitureValide`;
+  Url4 = `${this.baseUrl}/reparation/deleteReparation`;
+  Url5 = `${this.baseUrl}/reparation/findReparationById`;
+  Url6 = `${this.baseUrl}/reparation/listeDepotVoitureParVoiture`;
 
   depotVoiture(nom: string,type: string, file: File, immatriculation: string, utilisateurId: any){
     const formData = new FormData();

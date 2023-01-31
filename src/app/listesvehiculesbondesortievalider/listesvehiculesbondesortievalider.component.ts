@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Utilisateur } from '../Model/Utilisateur';
 import { Vehicule } from '../Model/vehicule';
 import { VehiculeService } from '../Service/vehicule.service';
@@ -14,7 +15,7 @@ export class ListesvehiculesbondesortievaliderComponent {
   Utilisateur: Utilisateur = new Utilisateur();
   pages: number = 1;
   totallength: any;
-
+  baseUrl = environment.apiUrl;
   constructor(private servicevehicule:VehiculeService ,private router: Router) { }
 
   ngOnInit(): void {
