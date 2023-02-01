@@ -39,7 +39,7 @@
                 class="login-button">
                 Sign In
               </button>
-              <mat-spinner mode="indeterminate"*ngIf="submitting1"></mat-spinner>
+              <mat-spinner mode="indeterminate" *ngIf="submitting1" style="margin:0 auto;" [diameter]="70"></mat-spinner> 
             </form>
           </mat-card-content>
       </mat-tab>
@@ -96,7 +96,7 @@
               class="login-button">
               Sign Up
             </button>
-            <mat-spinner mode="indeterminate"*ngIf="submitting2"></mat-spinner>
+            <mat-spinner mode="indeterminate" *ngIf="submitting2" style="margin:0 auto;" [diameter]="70"></mat-spinner> 
           </form>
         </mat-card-content>
       </mat-tab>
