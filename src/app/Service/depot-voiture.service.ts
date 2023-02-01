@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Vehicule } from '../Model/vehicule';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
 import { Reparation } from '../Model/Reparation';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -26,14 +26,20 @@ export class DepotVoitureService {
     const formData = new FormData();
       formData.append('nom',nom);
       formData.append('type',type);
-      formData.append('image',file);
+      formData.append('file',file);
       formData.append('immatriculation',immatriculation);
       formData.append('utilisateurId',utilisateurId);
-      const headers = new HttpHeaders();
-      headers.append('Content-Type', 'multipart/form/data');
+      console.log(file);
+      console.log(nom);
+      console.log(immatriculation);
+      console.log(utilisateurId)
 
-      console.log(formData)
-    return this.http.post<Vehicule>(this.url,formData,{headers});
+      const req = new HttpRequest('POST', `${this.UrlDepot}`, formData, {
+        reportProgress: true,
+        responseType: 'json'
+      });
+
+      return this.http.request(req);
   }
   getOneVoitureClient(utilisateurId: any){
     const res = this.http.get<Vehicule[]>(`${this.Url2}/${utilisateurId}`);

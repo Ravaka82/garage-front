@@ -10,7 +10,7 @@
             <!-- <div class="col-lg-3 col-md-6 d-flex align-items-stretch" *ngFor=" let vehiculerepare of VehiculeReparer | paginate: { itemsPerPage: 8, currentPage: pages,totalItems : totallength}"> -->
              <div class="col-lg-3 col-md-6 d-flex align-items-stretch" *ngFor=" let vehiculeAttente of ListesPaiementAttente  | paginate: { itemsPerPage: 3, currentPage: pages,totalItems : totallength}">
               <div class="card" style="overflow: hidden;">
-                <img [src]="this.baseUrl+'/images/'+vehiculeAttente.vehicule.image" height="200px"  class="card-img-top" alt="...">
+                <img [src]="vehiculeAttente.vehicule.image" height="200px"  class="card-img-top" alt="...">
                 <div class="card-body">
                   <!-- <h5 class="card-title" style="color:chocolate;font-weight:bold">CLIENT : {{vehiculeAttente.vehicule.utilisateurId.nom}}</h5> -->
                   <h5 class="card-title" style="color:chocolate;font-weight:bold">{{vehiculeAttente.vehicule.nom}}</h5>

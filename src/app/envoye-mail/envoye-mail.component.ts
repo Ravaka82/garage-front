@@ -51,23 +51,23 @@ export class EnvoyeMailComponent implements OnInit {
       console.log("f"+f);
       console.log("filename"+filename);
       this.submitting = true;
-      this.paiementservice.sendMail(to,subject,text,file,filename).subscribe(
-        (response) => {
-        // do something with the response
-        console.log(response);
-        this._snackBar.open("E-mail envoyé avec succès ✔️✔️ ", 'Close',{
-          duration:5000,
-          // css matsnack bar dia any amn style.css ny css anreo
-          verticalPosition: 'top',
-          horizontalPosition: 'right',
-          panelClass: ['success-alert']
-        });
-        this.submitting = false;
-        },
-        (error) => {
-        // handle the error
-        }
-        );
+      // this.paiementservice.sendMail(to,subject,text,file,filename).subscribe(
+      //   (response) => {
+      //   // do something with the response
+      //   console.log(response);
+      //   this._snackBar.open("E-mail envoyé avec succès ✔️✔️ ", 'Close',{
+      //     duration:5000,
+      //     // css matsnack bar dia any amn style.css ny css anreo
+      //     verticalPosition: 'top',
+      //     horizontalPosition: 'right',
+      //     panelClass: ['success-alert']
+      //   });
+      //   this.submitting = false;
+      //   },
+      //   (error) => {
+      //   // handle the error
+      //   }
+        // );
       
     }
 }

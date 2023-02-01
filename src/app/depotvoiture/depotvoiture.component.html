@@ -7,7 +7,7 @@
             <p>Dépot Voiture</p>
           </div>
             <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" style="margin-left: 200px">
-              <form (ngSubmit)="boutonsaveDepot()" class="php-email-form">
+              <form (ngSubmit)="boutonsaveDepot()" enctype="multipart/form-data" class="php-email-form">
                 <div class="form-group mt-3">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Nom: </label>
                     <input type="text" class="form-control" placeholder="Nom du voiture" required [(ngModel)]="vehicule.nom" name="nom" style="margin-left: 140px;margin-top:-40px;">
