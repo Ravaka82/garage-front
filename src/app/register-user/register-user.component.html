@@ -1,6 +1,6 @@
 <div class="login-page">
   <button class="btn btn-warning" routerLink="/acceuil"  type="submit">Retour</button>
-  <mat-card class="mat-elevation-z12" style="margin-left: 300px;">
+  <mat-card class="mat-elevation-z12" style="margin-left: 350px;">
     <mat-card-title style="text-align:center;margin-top:20px;">Login Client / Inscription</mat-card-title>
     <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
       <mat-tab label="login">
@@ -9,9 +9,9 @@
               <mat-form-field>
                 <input
                   matInput
-                  placeholder="Utilisateur"
+                  placeholder="nom"
                   required
-                  required [(ngModel)]="Utilisateur.nom" name="nom" value="Utilisateur">
+                  required [(ngModel)]="Utilisateur.nom" name="nom" value="{{Utilisateur.nom}}">
                
                 <mat-icon matSuffix>nom</mat-icon>
               </mat-form-field>
@@ -22,7 +22,7 @@
                   type="password"
                   required
                   minlength="6"
-                  required [(ngModel)]="Utilisateur.mot_de_passe" name="mot_de_passe" value="123456789">
+                  required [(ngModel)]="Utilisateur.mot_de_passe" name="mot_de_passe" value="{{Utilisateur.mot_de_passe}}"> 
                   <!-- <mat-error
                     *ngIf="password.errors && password.errors['required']">
                     Password is required
@@ -106,7 +106,7 @@
 
   
 </div>
-<mat-card class="mat-elevation-z12" style="margin-top: -525px;margin-right:250px;">
+<mat-card class="mat-elevation-z12" style="margin-top: -590px;margin-right:310px;">
   <mat-card-title style="text-align:center;margin-top:20px">Login Financier / Login Atelier</mat-card-title>
   <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
     <mat-tab label="Login Financier">

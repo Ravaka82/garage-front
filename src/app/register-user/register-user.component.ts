@@ -31,6 +31,8 @@ export class RegisterUserComponent implements AfterViewInit {
     this.motdepasseFinancier="12345678";
     this.nomAtelier="Atelier";
     this.motdepasseAtelier="aaaaaaaa";
+    this.Utilisateur.nom="Utilisateur";
+    this.Utilisateur.mot_de_passe="123456789";
   }
   listRole(): void{// findRole
     this. roleservice.getAllRole()
