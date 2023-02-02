@@ -51,29 +51,6 @@ getData(){
 onFileSelected(event:any) {
   this.selectedFile = <File>event.target.files[0];
 }
-  async boutonsaveDepot() {
-  this.Vehicule.utilisateurId=localStorage.getItem('idUser');
-    const nom = this.Vehicule.nom;
-    const type = this.Vehicule.type;
-    const immatriculation = this.Vehicule.immatriculation;
-    const image = this.selectedFile;
-    const utilisateurId= this.Vehicule.utilisateurId;
-  (await this.depotservice.depotVoiture(nom, type, image, immatriculation, utilisateurId)).subscribe(
-      (response) => {
-        console.log(response);
-        this._snackBar.open(" insertion vehicule avec succès ✔️✔️ ", 'Close', {
-          duration: 5000,
-          verticalPosition: 'top',
-          horizontalPosition: 'right',
-          panelClass: ['success-alert']
-        });
-        this.reloadComponent();
-      },
-      (error) => {
-        // handle the error
-        console.log(error)
-      });    
-  }
   reloadComponent() {
     let currentUrl = this.router.url;
         this.router.routeReuseStrategy.shouldReuseRoute = () => false;
