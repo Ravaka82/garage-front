@@ -67,12 +67,19 @@ onFileSelected(event:any) {
           horizontalPosition: 'right',
           panelClass: ['success-alert']
         });
+        this.reloadComponent();
       },
       (error) => {
         // handle the error
         console.log(error)
       });    
   }
+  reloadComponent() {
+    let currentUrl = this.router.url;
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate([currentUrl]);
+    }
 listReparartion(): void{//function liste
   this.typeReparationservice.getAllTypeReparation()
     .subscribe(
