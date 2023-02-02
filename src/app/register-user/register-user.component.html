@@ -9,9 +9,9 @@
               <mat-form-field>
                 <input
                   matInput
-                  placeholder="nom"
+                  placeholder="Utilisateur"
                   required
-                  required [(ngModel)]="Utilisateur.nom" name="nom">
+                  required [(ngModel)]="Utilisateur.nom" name="nom" value="Utilisateur">
                
                 <mat-icon matSuffix>nom</mat-icon>
               </mat-form-field>
@@ -22,7 +22,7 @@
                   type="password"
                   required
                   minlength="6"
-                  required [(ngModel)]="Utilisateur.mot_de_passe" name="mot_de_passe">
+                  required [(ngModel)]="Utilisateur.mot_de_passe" name="mot_de_passe" value="123456789">
                   <!-- <mat-error
                     *ngIf="password.errors && password.errors['required']">
                     Password is required
