@@ -34,14 +34,14 @@ getData(){
 onFileSelected(event:any) {
   this.selectedFile = <File>event.target.files[0];
 }
-boutonsaveDepot() {
+  async boutonsaveDepot() {
   this.vehicule.utilisateurId=localStorage.getItem('idUser');
     const nom = this.vehicule.nom;
     const type = this.vehicule.type;
     const immatriculation = this.vehicule.immatriculation;
     const image = this.selectedFile;
     const utilisateurId= this.vehicule.utilisateurId;
-    this.depotservice.depotVoiture(nom, type, image, immatriculation, utilisateurId).subscribe(
+    (await this.depotservice.depotVoiture(nom, type, image, immatriculation, utilisateurId)).subscribe(
       (response) => {
         console.log(response);
         this._snackBar.open(" insertion vehicule avec succès ✔️✔️ ", 'Close', {
