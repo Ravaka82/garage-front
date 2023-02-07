@@ -12,6 +12,11 @@
   overflow: hidden;
   background-image:url('../../assets/images/v.png');
 }
+.container{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
 
 mat-card {
   width: 25%;
