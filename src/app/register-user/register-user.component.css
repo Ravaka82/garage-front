@@ -19,8 +19,7 @@
 }
 
 mat-card {
-  width: 25%;
-  margin: 10% auto;
+  width: 45%;
   border-radius: 8px;
   background-color:gray;
   box-shadow: 20px;
